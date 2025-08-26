@@ -1,7 +1,6 @@
 import {
   DisconnectReason,
   fetchLatestBaileysVersion,
-  downloadContentFromMessage,
   useMultiFileAuthState,
   makeWASocket
 } from 'baileys';
@@ -35,23 +34,14 @@ function serialize(sock, m) {
     sender,
     body,
     isGroup,
-    reply: (text) => sock.sendMessage(from, { text }, { quoted: m }),
-    download: async () => {
-      const stream = await downloadContentFromMessage(
-        m.message[type],
-        type.replace('Message', '')
-      );
-      let buffer = Buffer.from([]);
-      for await (const chunk of stream) buffer = Buffer.concat([buffer, chunk]);
-      return buffer;
-    }
+    reply: (text) => sock.sendMessage(from, { text }, { quoted: m })
   };
 }
 
 async function tr_txt(text, to = 'en') {
   try {
     const res = await axios.get(
-      `https://api.naxordeve.qzz.io/tools/translate?text=${text}&to=${to}`
+      `https://api.naxordeve.qzz.io/tools/translate?text=${encodeURIComponent(text)}&to=${to}`
     );
     if (res.data?.ok) return res.data.result || res.data.text;
   } catch {}
@@ -73,29 +63,16 @@ async function Phoenix() {
     version
   });
 
-  const translatedMsgs = new Set();
   sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0];
     if (!m.message || m.key.remoteJid === 'status@broadcast') return;
 
     const msg = serialize(sock, m);
-    if (msg.isGroup && msg.body && !msg.body.startsWith(config.prefix)) {
-      if (!translatedMsgs.has(msg.id)) {
-        translatedMsgs.add(msg.id);
-        try {
-          const translated = await tr_txt(msg.body, 'en');
-          if (translated.toLowerCase() !== msg.body.toLowerCase()) {
-            msg.reply(`*Tr*:\n${translated}`);
-          }
-        } catch (e) {
-          console.error(e);
-        }
-        setTimeout(() => translatedMsgs.delete(msg.id), 30000);
-      }
-    }
 
     if (msg.body.startsWith(config.prefix)) {
-      const cmd = msg.body.slice(config.prefix.length).trim().split(' ')[0].toLowerCase();
+      const args = msg.body.slice(config.prefix.length).trim().split(' ');
+      const cmd = args.shift().toLowerCase();
+
       switch (cmd) {
         case 'ping': {
           const start = Date.now();
@@ -107,11 +84,58 @@ async function Phoenix() {
         case 'alive':
           msg.reply('*I am alive and running*');
           break;
-        case 'menu':
-          msg.reply(
-            `Menu:\n\n${config.prefix}ping - Latency\n${config.prefix}alive - Status\n${config.prefix}menu - Show this menu\n(Auto-translate is ON in groups)\n\n*Phoenix Bot*`
-          );
+          case 'song': {
+    const query = args.join(' ');
+  if (!query) return msg.reply(`usage: ${config.prefix}play <song name>`);
+  try {const res = await axios.get(`https://api.naxordeve.qzz.io/download/youtube?query=${query}`);
+    const data = res.data;
+    if (!data || !data.mp3) return msg.reply('_No results found_');
+    const caption = `Title: ${data.title}\nQuality: ${data.quality}p`;
+    await sock.sendMessage(msg.from, {
+      image: { url: data.thumb },
+      caption
+    }, { quoted: m });
+    await sock.sendMessage(msg.from, {
+      audio: { url: data.mp3 },
+      mimetype: 'audio/mpeg',
+      fileName: `${data.title}.mp3`
+    }, { quoted: m });
+
+  } catch (e) {
+    console.error(e);
+    msg.reply('_err_');
+  }
+  break;
+          }
+        
+          case 'menu':
+  msg.reply(
+`╭━━━〔 Phoenix Bot 〕
+┃  *Prefix:* ${config.prefix}
+┃  *Owner:* 'Pheonix'
+┃  *Status:* Online
+╰━━━━━━━
+
+╭━━━〔 Main〕
+┃  ${config.prefix}ping 
+┃  ${config.prefix}alive
+┃  ${config.prefix}tr  
+┃  ${config.prefix}menu
+┃  ${config.prefix}song
+╰━━━━━━━━`
+  );
+  break;
+        case 'tr': {
+          if (!args.length) return msg.reply(`usage: ${config.prefix}tr <text> [lang]`);
+          const to = args.length > 1 ? args.pop() : 'en';
+          const text = args.join(' ');
+          try { const translated = await tr_txt(text, to);
+            msg.reply(`*Tr (${to}):*\n${translated}`);
+          } catch (e) {
+            msg.reply('_failed_');
+          }
           break;
+        }
       }
     }
   });
