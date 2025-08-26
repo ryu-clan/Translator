@@ -1,9 +1,10 @@
-import makeWASocket, {
+import {
   DisconnectReason,
   fetchLatestBaileysVersion,
   downloadContentFromMessage,
   useMultiFileAuthState
 } from 'baileys'
+import { makeWASocket } from 'baileys'
 import P from 'pino'
 import fs from 'fs'
 import path from 'path'
@@ -119,7 +120,7 @@ async function Phoenix() {
         console.log('Logged out, remove auth_info and re-run SessionCode')
       }
     } else if (connection === 'open') {
-      console.log('✅ Connected')
+      console.log('✅ Phoenix Connected')
       try { 
         const id = sock.user?.id
         if (id) await sock.sendMessage(id, { text: '*connected successfully*' })
