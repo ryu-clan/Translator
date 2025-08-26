@@ -13,6 +13,7 @@ import { Boom } from '@hapi/boom'
 import { fileURLToPath } from 'url'
 import { SessionCode } from './session.js'
 import config from './config.js' 
+import http from 'http'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -119,12 +120,21 @@ async function Phoenix() {
       }
     } else if (connection === 'open') {
       console.log('✅ Connected')
-      try { const id = sock.user?.id
-      if (id) await sock.sendMessage(id, { text: '*connected successfully*' })
+      try { 
+        const id = sock.user?.id
+        if (id) await sock.sendMessage(id, { text: '*connected successfully*' })
       } catch (e) {
         console.error(e)
       }
     }
+  })
+
+  const PORT = process.env.PORT || 8000
+  http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' })
+  res.end('Phoenix Bot is running\n')
+  }).listen(PORT, () => {
+  console.log(`HTTP server listening on port ${PORT}`)
   })
 }
 
