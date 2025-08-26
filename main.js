@@ -1,8 +1,9 @@
 import makeWASocket, {
   DisconnectReason,
   fetchLatestBaileysVersion,
-  downloadContentFromMessage
-} from '@whiskeysockets/baileys'
+  downloadContentFromMessage,
+  useMultiFileAuthState
+} from 'baileys'
 import P from 'pino'
 import fs from 'fs'
 import path from 'path'
@@ -11,9 +12,11 @@ import translate from '@vitalets/google-translate-api'
 import { Boom } from '@hapi/boom'
 import { fileURLToPath } from 'url'
 import { SessionCode } from './session.js'
+import config from './config.js' 
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
 function serialize(sock, m) {
   const type = Object.keys(m.message)[0]
   const body =
@@ -44,7 +47,8 @@ function serialize(sock, m) {
 }
 
 async function tr_txt(text, to = 'en') {
-  try {const res = await axios.get(
+  try {
+    const res = await axios.get(
       `https://api.naxordeve.qzz.io/tools/translate?text=${
         text
       }&to=${to}`
@@ -55,17 +59,16 @@ async function tr_txt(text, to = 'en') {
   return result.text
 }
 
-async function Pheonix() {
-  await SessionCode(config.SESSION_ID || process.env.SESSION_ID, './lib/Session');
-  const sessionDir = path.join(__dirname, 'Session');
-  if (!fs.existsSync(sessionDir)) fs.mkdirSync(sessionDir);
-  const logga = pino({ level: 'silent' });
-  const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
+async function Phoenix() {
+  const sessionDir = path.join(__dirname, 'Session')
+  if (!fs.existsSync(sessionDir)) fs.mkdirSync(sessionDir)
+  await SessionCode(config.SESSION_ID, sessionDir)
+  const { state, saveCreds } = await useMultiFileAuthState(sessionDir)
   const { version } = await fetchLatestBaileysVersion()
   const sock = makeWASocket({
     logger: P({ level: 'silent' }),
     printQRInTerminal: false,
-    auth: { creds },
+    auth: state,
     version
   })
 
@@ -73,22 +76,23 @@ async function Pheonix() {
     const m = messages[0]
     if (!m.message || m.key.remoteJid === 'status@broadcast') return
     const msg = serialize(sock, m)
-    if (msg.isGroup && msg.body && !msg.body.startsWith('.')) {
-      try {const translated = await tr_txt(msg.body, 'en')
+    if (msg.isGroup && msg.body && !msg.body.startsWith(config.prefix)) {
+      try {
+        const translated = await tr_txt(msg.body, 'en')
         if (translated.toLowerCase() !== msg.body.toLowerCase()) {
           msg.reply(`*Tr*:\n${translated}`)
         }
       } catch {}
     }
 
-    if (msg.body.startsWith('.')) {
-      const cmd = msg.body.slice(1).trim().split(' ')[0].toLowerCase()
+    if (msg.body.startsWith(config.prefix)) {
+      const cmd = msg.body.slice(config.prefix.length).trim().split(' ')[0].toLowerCase()
       switch (cmd) {
         case 'ping': {
           const start = Date.now()
           await msg.reply('Speed...')
-          const end = Date.now() it 
-          msg.reply(`🏓Latency: ${end - start}ms`)
+          const end = Date.now()
+          msg.reply(`🏓 Latency: ${end - start}ms`)
           break
         }
         case 'alive':
@@ -96,7 +100,7 @@ async function Pheonix() {
           break
         case 'menu':
           msg.reply(
-            `Menu:\n\n.ping -\n.alive -\n.menu -\n(Auto-translate)\n\n*Phoenix Bot*`
+            `Menu:\n\n${config.prefix}ping - Latency\n${config.prefix}alive - Status\n${config.prefix}menu - Show this menu\n(Auto-translate is ON in groups)\n\n*Phoenix Bot*`
           )
           break
       }
@@ -112,15 +116,16 @@ async function Pheonix() {
         setTimeout(Phoenix, 5000)
       } else {
         console.log('Logged out, remove auth_info and re-run SessionCode')
-      }} else if (connection === 'open') {
+      }
+    } else if (connection === 'open') {
       console.log('✅ Connected')
-      try {const id = sock.user?.id
-        if (id) {
-          await sock.sendMessage(id, { text: '*connected successfully*' })
-        }
+      try { const id = sock.user?.id
+      if (id) await sock.sendMessage(id, { text: '*connected successfully*' })
       } catch (e) {
         console.error(e)
       }
     }
   })
-  }
+}
+
+Phoenix()
