@@ -14,16 +14,6 @@ import { SessionCode } from './session.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-
-;(async () => {
-  if (!process.env.SESSION_ID) {
-    console.error(' session id not set .env')
-    process.exit(1)
-  }
-  await SessionCode(process.env.SESSION_ID, './auth_info')
-  Phoenix()
-})()
-
 function serialize(sock, m) {
   const type = Object.keys(m.message)[0]
   const body =
@@ -66,7 +56,11 @@ async function tr_txt(text, to = 'en') {
 }
 
 async function Pheonix() {
-  
+  await SessionCode(config.SESSION_ID || process.env.SESSION_ID, './lib/Session');
+  const sessionDir = path.join(__dirname, 'Session');
+  if (!fs.existsSync(sessionDir)) fs.mkdirSync(sessionDir);
+  const logga = pino({ level: 'silent' });
+  const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
   const { version } = await fetchLatestBaileysVersion()
   const sock = makeWASocket({
     logger: P({ level: 'silent' }),
