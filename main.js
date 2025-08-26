@@ -2,33 +2,33 @@ import {
   DisconnectReason,
   fetchLatestBaileysVersion,
   downloadContentFromMessage,
-  useMultiFileAuthState
-} from 'baileys'
-import { makeWASocket } from 'baileys'
-import P from 'pino'
-import fs from 'fs'
-import path from 'path'
-import axios from 'axios'
-import translate from '@vitalets/google-translate-api'
-import { Boom } from '@hapi/boom'
-import { fileURLToPath } from 'url'
-import { SessionCode } from './session.js'
-import config from './config.js' 
-import http from 'http'
+  useMultiFileAuthState,
+  makeWASocket
+} from 'baileys';
+import P from 'pino';
+import fs from 'fs';
+import path from 'path';
+import axios from 'axios';
+import translate from '@vitalets/google-translate-api';
+import { Boom } from '@hapi/boom';
+import { fileURLToPath } from 'url';
+import { SessionCode } from './session.js';
+import config from './config.js';
+import http from 'http';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function serialize(sock, m) {
-  const type = Object.keys(m.message)[0]
+  const type = Object.keys(m.message)[0];
   const body =
     m.message.conversation ||
     m.message[type]?.text ||
     m.message[type]?.caption ||
-    ''
-  const from = m.key.remoteJid
-  const sender = m.key.participant || from
-  const isGroup = from.endsWith('@g.us')
+    '';
+  const from = m.key.remoteJid;
+  const sender = m.key.participant || from;
+  const isGroup = from.endsWith('@g.us');
   return {
     id: m.key.id,
     from,
@@ -40,103 +40,110 @@ function serialize(sock, m) {
       const stream = await downloadContentFromMessage(
         m.message[type],
         type.replace('Message', '')
-      )
-      let buffer = Buffer.from([])
-      for await (const chunk of stream) buffer = Buffer.concat([buffer, chunk])
-      return buffer
+      );
+      let buffer = Buffer.from([]);
+      for await (const chunk of stream) buffer = Buffer.concat([buffer, chunk]);
+      return buffer;
     }
-  }
+  };
 }
 
 async function tr_txt(text, to = 'en') {
   try {
     const res = await axios.get(
-      `https://api.naxordeve.qzz.io/tools/translate?text=${
-        text
-      }&to=${to}`
-    )
-    if (res.data?.ok) return res.data.result || res.data.text
+      `https://api.naxordeve.qzz.io/tools/translate?text=${text}&to=${to}`
+    );
+    if (res.data?.ok) return res.data.result || res.data.text;
   } catch {}
-  const result = await translate(text, { to })
-  return result.text
+  const result = await translate(text, { to });
+  return result.text;
 }
 
 async function Phoenix() {
-  const sessionDir = path.join(__dirname, 'Session')
-  if (!fs.existsSync(sessionDir)) fs.mkdirSync(sessionDir)
-  await SessionCode(config.SESSION_ID, sessionDir)
-  const { state, saveCreds } = await useMultiFileAuthState(sessionDir)
-  const { version } = await fetchLatestBaileysVersion()
+  const sessionDir = path.join(__dirname, 'Session');
+  if (!fs.existsSync(sessionDir)) fs.mkdirSync(sessionDir);
+  await SessionCode(config.SESSION_ID, sessionDir);
+
+  const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
+  const { version } = await fetchLatestBaileysVersion();
   const sock = makeWASocket({
     logger: P({ level: 'silent' }),
     printQRInTerminal: false,
     auth: state,
     version
-  })
+  });
 
+  const translatedMsgs = new Set();
   sock.ev.on('messages.upsert', async ({ messages }) => {
-    const m = messages[0]
-    if (!m.message || m.key.remoteJid === 'status@broadcast') return
-    const msg = serialize(sock, m)
+    const m = messages[0];
+    if (!m.message || m.key.remoteJid === 'status@broadcast') return;
+
+    const msg = serialize(sock, m);
     if (msg.isGroup && msg.body && !msg.body.startsWith(config.prefix)) {
-      try {
-        const translated = await tr_txt(msg.body, 'en')
-        if (translated.toLowerCase() !== msg.body.toLowerCase()) {
-          msg.reply(`*Tr*:\n${translated}`)
+      if (!translatedMsgs.has(msg.id)) {
+        translatedMsgs.add(msg.id);
+        try {
+          const translated = await tr_txt(msg.body, 'en');
+          if (translated.toLowerCase() !== msg.body.toLowerCase()) {
+            msg.reply(`*Tr*:\n${translated}`);
+          }
+        } catch (e) {
+          console.error(e);
         }
-      } catch {}
+        setTimeout(() => translatedMsgs.delete(msg.id), 30000);
+      }
     }
 
     if (msg.body.startsWith(config.prefix)) {
-      const cmd = msg.body.slice(config.prefix.length).trim().split(' ')[0].toLowerCase()
+      const cmd = msg.body.slice(config.prefix.length).trim().split(' ')[0].toLowerCase();
       switch (cmd) {
         case 'ping': {
-          const start = Date.now()
-          await msg.reply('Speed...')
-          const end = Date.now()
-          msg.reply(`🏓 Latency: ${end - start}ms`)
-          break
+          const start = Date.now();
+          await msg.reply('Speed...');
+          const end = Date.now();
+          msg.reply(`🏓 Latency: ${end - start}ms`);
+          break;
         }
         case 'alive':
-          msg.reply('*I am alive and running*')
-          break
+          msg.reply('*I am alive and running*');
+          break;
         case 'menu':
           msg.reply(
             `Menu:\n\n${config.prefix}ping - Latency\n${config.prefix}alive - Status\n${config.prefix}menu - Show this menu\n(Auto-translate is ON in groups)\n\n*Phoenix Bot*`
-          )
-          break
+          );
+          break;
       }
     }
-  })
+  });
 
   sock.ev.on('connection.update', async (update) => {
-    const { connection, lastDisconnect } = update
+    const { connection, lastDisconnect } = update;
     if (connection === 'close') {
-      const code = new Boom(lastDisconnect?.error).output?.statusCode
+      const code = new Boom(lastDisconnect?.error).output?.statusCode;
       if (code !== DisconnectReason.loggedOut) {
-        console.log('Disconnected, reconnecting in 5s...')
-        setTimeout(Phoenix, 5000)
+        console.log('Disconnected, reconnecting in 5s...');
+        setTimeout(Phoenix, 5000);
       } else {
-        console.log('Logged out, remove auth_info and re-run SessionCode')
+        console.log('Logged out, remove auth_info and re-run SessionCode');
       }
     } else if (connection === 'open') {
-      console.log('✅ Phoenix Connected')
-      try { 
-        const id = sock.user?.id
-        if (id) await sock.sendMessage(id, { text: '*connected successfully*' })
+      console.log('✅ Phoenix Connected');
+      try {
+        const id = sock.user?.id;
+        if (id) await sock.sendMessage(id, { text: '*connected successfully*' });
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     }
-  })
+  });
 
-  const PORT = process.env.PORT || 8000
+  const PORT = process.env.PORT || 8000;
   http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end('Phoenix Bot is running\n')
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Phoenix Bot is running\n');
   }).listen(PORT, () => {
-  console.log(`HTTP server listening on port ${PORT}`)
-  })
+    console.log(`HTTP server listening on port ${PORT}`);
+  });
 }
 
-Phoenix()
+Phoenix();
