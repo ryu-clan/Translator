@@ -422,7 +422,7 @@ case 'time': {
 
         const userQuestion = args.join(' ');
 
-        const res = await fetch("https://garfield-apis.onrender.com/ai/chatgpt_3.5_scr1", {
+        const res = await fetch("https://api.naxordeve.qzz.io/ai/chatgpt_3.5_scr1", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -454,7 +454,7 @@ const prePrompt = "You are Eternity, an AI assistant. Give short, clear, and use
 
     const userQuestion = args.join(' ');  
 
-    const res = await fetch("https://garfield-apis.onrender.com/ai/chatgpt_3.5_scr1", {  
+    const res = await fetch("https://api.naxordeve.qzz.io/ai/chatgpt_3.5_scr1", {  
         method: "POST",  
         headers: { "Content-Type": "application/json" },  
         body: JSON.stringify({  
