@@ -697,3 +697,369 @@ Answer: Pressurized Gas
 Question: In "Hunter x Hunter," who is Gon's best friend?
 Options: Kurapika, Leorio, Hisoka, Killua
 Answer: Killua
+
+Question: In "Naruto," what is the name of Naruto's mother?
+Options: Mikoto Uchiha, Kushina Uzumaki, Tsunade Senju, Kurenai Yuhi
+Answer: Kushina Uzumaki
+
+Question: In "Death Note," what is the name of L's successor who loves chocolate?
+Options: Near, Mello, Matt, Roger
+Answer: Mello
+
+Question: In "One Piece," what is the name of the shipwright who built the Oro Jackson, Gol D. Roger's ship?
+Options: Franky, Iceburg, Tom, Spandam
+Answer: Tom
+
+Question: In "My Hero Academia," what is All Might's real name?
+Options: Enji Todoroki, Toshinori Yagi, Shota Aizawa, Hizashi Yamada
+Answer: Toshinori Yagi
+
+Question: In "Dragon Ball Z," what is the name of the technique that allows instantaneous travel?
+Options: Kaio-ken, Solar Flare, Instant Transmission, Spirit Bomb
+Answer: Instant Transmission
+
+Question: In "Attack on Titan," what is the name of the substance that Titan shifters need to inject to transform?
+Options: Spinal Fluid, Titan Serum, Potion, Elixir
+Answer: Titan Serum
+
+Question: In "Jujutsu Kaisen," what is the name of Maki Zenin's twin sister?
+Options: Kasumi Miwa, Mai Zenin, Momo Nishimiya, Nobara Kugisaki
+Answer: Mai Zenin
+
+Question: In "Demon Slayer," who is the Hashira that uses Sound Breathing?
+Options: Gyomei Himejima, Sanemi Shinazugawa, Tengen Uzui, Obanai Iguro
+Answer: Tengen Uzui
+
+Question: In "Fullmetal Alchemist: Brotherhood," what is the name of the Ishvalan survivor who seeks revenge on State Alchemists?
+Options: Scar, Basque Grand, Ling Yao, Miles
+Answer: Scar
+
+Question: In "Hunter x Hunter," what is the name of the card-based game set in the virtual world?
+Options: Hunter Island, Greed Island, Nen Island, Yorknew Island
+Answer: Greed Island
+
+Question: In "Bleach," who is the Captain of the 6th Division of the Gotei 13?
+Options: Gin Ichimaru, Byakuya Kuchiki, Toshiro Hitsugaya, Sajin Komamura
+Answer: Byakuya Kuchiki
+
+Question: In "One-Punch Man," what is the name of the S-Class Rank 1 hero?
+Options: Tatsumaki, King, Blast, Silver Fang
+Answer: Blast
+
+Question: In "Black Clover," what kind of magic does Yuno use?
+Options: Anti-Magic, Fire Magic, Water Magic, Wind Magic
+Answer: Wind Magic
+
+Question: In "Dr. Stone," what is Senku Ishigami's main goal?
+Options: To conquer the world, To rebuild civilization with science, To find a cure for petrification, To live a simple life
+Answer: To rebuild civilization with science
+
+Question: In "Sailor Moon," what is the real name of Tuxedo Mask?
+Options: Motoki Furuhata, Mamoru Chiba, Umino Gurio, Jadeite
+Answer: Mamoru Chiba
+
+Question: In "Yu Yu Hakusho," who is Yusuke Urameshi's primary rival?
+Options: Hiei, Kurama, Kazuma Kuwabara, Genkai
+Answer: Kazuma Kuwabara
+
+Question: In "Inuyasha," what is the name of the powerful jewel that is the focus of the series?
+Options: The Sacred Jewel, The Jewel of Four Souls, The Demon Jewel, The Priestess's Jewel
+Answer: The Jewel of Four Souls
+
+Question: In "Fire Force," what is Shinra Kusakabe's nickname?
+Options: Knight King, Devil's Footprints, The Hero, Joker
+Answer: Devil's Footprints
+
+Question: In "That Time I Got Reincarnated as a Slime," what is the name of the protagonist's slime form?
+Options: Veldora, Rimuru Tempest, Shizu, Benimaru
+Answer: Rimuru Tempest
+
+Question: In "Vinland Saga," what country is the protagonist Thorfinn from?
+Options: Denmark, Norway, England, Iceland
+Answer: Iceland
+
+Question: In "Naruto," what is another name for the First Hokage, Hashirama Senju?
+Options: The Professor, The God of Shinobi, The Yellow Flash, The Ghost of the Uchiha
+Answer: The God of Shinobi
+
+Question: In "Jojo's Bizarre Adventure," what is the name of Joseph Joestar's signature finishing move?
+Options: Hermit Purple, Zoom Punch, Clacker Volley, Sunlight Yellow Overdrive
+Answer: Clacker Volley
+
+Question: In "Spy x Family," what is the name of the organization Loid Forger works for?
+Options: WISE, The Garden, SSS, Ostanian Intelligence
+Answer: WISE
+
+Question: In "Code Geass," what is the name of Lelouch's younger sister?
+Options: Euphemia, Cornelia, Nunnally, C.C.
+Answer: Nunnally
+
+Question: In "Steins;Gate," who is the creator of the Future Gadget Lab?
+Options: Itaru Hashida, Kurisu Makise, Rintaro Okabe, Mayuri Shiina
+Answer: Rintaro Okabe
+
+Question: In "Sword Art Online," what is the name of the guild led by Asuna?
+Options: Laughing Coffin, Knights of the Blood Oath, Divine Dragons Alliance, Fuurinkazan
+Answer: Knights of the Blood Oath
+
+Question: In "Violet Evergarden," what was Violet's role in the war?
+Options: Nurse, Spy, Soldier, Messenger
+Answer: Soldier
+
+Question: In "Cowboy Bebop," what is Jet Black's former profession?
+Options: Bounty Hunter, ISSP Police Officer, Gang Member, Musician
+Answer: ISSP Police Officer
+
+Question: In "One Piece," what is the name of Dracule Mihawk's sword?
+Options: Wado Ichimonji, Shusui, Yoru, Sandai Kitetsu
+Answer: Yoru
+
+Question: In "Dragon Ball Super," who is the angel attendant of Beerus?
+Options: Vados, Whis, The Grand Priest, Korn
+Answer: Whis
+
+Question: In "Attack on Titan," which branch of the military is responsible for patrolling and protecting the Walls?
+Options: The Survey Corps, The Military Police Brigade, The Garrison Regiment, The Cadet Corps
+Answer: The Garrison Regiment
+
+Question: In "My Hero Academia," which hero has the Quirk "Fibermaster"?
+Options: Mirko, Edgeshot, Best Jeanist, Hawks
+Answer: Best Jeanist
+
+Question: In "Demon Slayer," what is the family name of the Flame Hashira, Kyojuro?
+Options: Uzui, Shinazugawa, Tomioka, Rengoku
+Answer: Rengoku
+
+Question: In "Jujutsu Kaisen," which finger does Yuji Itadori consume first?
+Options: Sukuna's Right Index Finger, Sukuna's Left Index Finger, Sukuna's Right Thumb, Sukuna's Left Pinky
+Answer: Sukuna's Right Index Finger
+
+Question: In "Hunter x Hunter," what is the name of the musical test in the Hunter Exam?
+Options: The Trick Tower, The Zevil Island Phase, The Cooking Test, The Music Box Test
+Answer: The Music Box Test
+
+Question: In "Bleach," what is the name of the final form of Ichigo's Bankai?
+Options: Tensa Zangetsu, Mugetsu, Getsuga Tensho, Zangetsu
+Answer: Tensa Zangetsu
+
+Question: In "Fullmetal Alchemist," what is the name of the Führer of Amestris?
+Options: King Bradley, Roy Mustang, Grumman, Olivier Armstrong
+Answer: King Bradley
+
+Question: In "Death Note," who is the original owner of the notebook that Light finds?
+Options: Rem, Ryuk, Sidoh, Gelus
+Answer: Sidoh
+
+Question: In "Pokémon," who is Ash Ketchum's main rival from Pallet Town?
+Options: Ritchie, Paul, Gary Oak, Trip
+Answer: Gary Oak
+
+Question: In "Digimon Adventure," what is the Crest of the main character, Tai Kamiya?
+Options: Friendship, Knowledge, Courage, Love
+Answer: Courage
+
+Question: In "Fruits Basket," what animal does Kyo Soma transform into?
+Options: Rat, Dog, Cat, Dragon
+Answer: Cat
+
+Question: In "Detective Conan," what is Shinichi Kudo's alias as a child?
+Options: Heiji Hattori, Kaito Kid, Conan Edogawa, Kogoro Mouri
+Answer: Conan Edogawa
+
+Question: In "Overlord," what is the name of the guild Ainz Ooal Gown was the master of?
+Options: Seraphim, Trinity, Ainz Ooal Gown, The Black Scripture
+Answer: Ainz Ooal Gown
+
+Question: In "Re:Zero," what is the name of the ability that allows Subaru to return to a point in the past upon dying?
+Options: Return by Death, Checkpoint, Reversal, Time Leap
+Answer: Return by Death
+
+Question: In "Gintama," what is the name of the alien race that invaded Earth?
+Options: Yato, Amanto, Shinra, Dakini
+Answer: Amanto
+
+Question: In "Haikyuu!!," what is the nickname of the Karasuno High School volleyball team?
+Options: The Flightless Crows, The Iron Wall, The Cats, The Eagles
+Answer: The Flightless Crows
+
+Question: In "Chainsaw Man," what does the Fox Devil require as payment to be summoned by Aki?
+Options: A piece of hair, A drop of blood, A piece of skin, A fingernail
+Answer: A piece of skin
+
+Question: In "Neon Genesis Evangelion," what is the official name of the event that caused worldwide catastrophe 15 years before the series?
+Options: First Impact, Second Impact, Third Impact, The Cataclysm
+Answer: Second Impact
+
+Question: In "Naruto Shippuden," who was the first of the Akatsuki to be defeated by Naruto?
+Options: Sasori, Deidara, Hidan, Kakuzu
+Answer: Kakuzu
+
+Question: In "One Piece," what is the name of the all-female pirate crew led by Boa Hancock?
+Options: The Sun Pirates, The Rumbar Pirates, The Kuja Pirates, The Big Mom Pirates
+Answer: The Kuja Pirates
+
+Question: In "Dragon Ball Z," who teaches Goku the Kaio-ken and Spirit Bomb techniques?
+Options: Master Roshi, King Kai, Kami, Piccolo
+Answer: King Kai
+
+Question: In "Attack on Titan," what is the name of Historia Reiss's true family?
+Options: The Ackerman Family, The Fritz Family, The Reiss Family, The Tybur Family
+Answer: The Fritz Family
+
+Question: In "My Hero Academia," what is the name of the U.A. sports festival's final event?
+Options: The Cavalry Battle, The Obstacle Race, The One-on-One Tournament, The Scavenger Hunt
+Answer: The One-on-One Tournament
+
+Question: In "Demon Slayer," what is Muzan Kibutsuji's primary goal?
+Options: To conquer the world, To become the ultimate demon, To achieve immortality by conquering the sun, To destroy the Demon Slayer Corps
+Answer: To achieve immortality by conquering the sun
+
+Question: In "Jujutsu Kaisen," who is the "Cursed Womb: Death Painting" that allies with Yuji's group?
+Options: Eso, Kechizu, Choso, Noritoshi Kamo
+Answer: Choso
+
+Question: In "Hunter x Hunter," who is the oldest member of the Zoldyck family?
+Options: Zeno, Silva, Maha, Killua
+Answer: Maha
+
+Question: In "Bleach," which Espada holds the rank of #1 (Primera)?
+Options: Baraggan Louisenbairn, Coyote Starrk, Tier Harribel, Ulquiorra Cifer
+Answer: Coyote Starrk
+
+Question: In "Fullmetal Alchemist," what is the name of the dog that was fused into a chimera with Nina Tucker?
+Options: Black Hayate, Alexander, Den, Hanako
+Answer: Alexander
+
+Question: In "Death Note," what is the "shinigami eye" deal?
+Options: Gain the eyes to see names and lifespans for half your life, Gain the eyes to kill with a look, Gain the eyes to control people, Gain the eyes to see the future
+Answer: Gain the eyes to see names and lifespans for half your life
+
+Question: In "Black Clover," who is the captain of the Black Bulls?
+Options: William Vangeance, Fuegoleon Vermillion, Nozel Silva, Yami Sukehiro
+Answer: Yami Sukehiro
+
+Question: In "Dr. Stone," what is the name of the village Senku establishes?
+Options: Stone Village, Science Village, Ishigami Village, Kingdom of Science
+Answer: Ishigami Village
+
+Question: In "Sailor Moon," what is Sailor Jupiter's real name?
+Options: Ami Mizuno, Rei Hino, Makoto Kino, Minako Aino
+Answer: Makoto Kino
+
+Question: In "Yu Yu Hakusho," what is the name of the tournament that the main characters participate in during the second major arc?
+Options: The Demon World Tournament, The Dark Tournament, The Genkai Tournament, The Spirit Detective Tournament
+Answer: The Dark Tournament
+
+Question: In "Inuyasha," who is Sesshomaru's loyal demon servant?
+Options: Myoga, Jaken, Shippo, Kohaku
+Answer: Jaken
+
+Question: In "Fire Force," what generation of pyrokinetic is Shinra?
+Options: First Generation, Second Generation, Third Generation, Fourth Generation
+Answer: Third Generation
+
+Question: In "That Time I Got Reincarnated as a Slime," what is the name of the storm dragon Rimuru befriends and names?
+Options: Ifrit, Veldora, Charybdis, Diablo
+Answer: Veldora
+
+Question: In "Vinland Saga," who is the king of the Danes during the main part of the first season?
+Options: Canute, Sweyn Forkbeard, Harald Bluetooth, Gorm the Old
+Answer: Sweyn Forkbeard
+
+Question: In "Jojo's Bizarre Adventure: Diamond is Unbreakable," what is the name of the main antagonist?
+Options: Dio Brando, Kars, Diavolo, Yoshikage Kira
+Answer: Yoshikage Kira
+
+Question: In "Spy x Family," what is the name of the prestigious school Anya is trying to get into?
+Options: Westalis Academy, Ostania University, Berlint High School, Eden Academy
+Answer: Eden Academy
+
+Question: In "Code Geass," what is the name of the mobile armored knight used in battle?
+Options: Gundam, Evangelion, Knightmare Frame, Jaeger
+Answer: Knightmare Frame
+
+Question: In "Steins;Gate," what is the nickname Mayuri gives to herself?
+Options: Mayushii, Mayu-chan, Mayu-rin, Mayu-tan
+Answer: Mayushii
+
+Question: In "Sword Art Online," what does "Beater" mean?
+Options: A player who beats the game, A beta tester and a cheater, A powerful monster, A type of sword skill
+Answer: A beta tester and a cheter
+
+Question: In "Violet Evergarden," what is the name of the company Violet works for?
+Options: Leiden Postal Service, CH Postal Company, The Memory Company, Evergarden Letters
+Answer: CH Postal Company
+
+Question: In "Cowboy Bebop," what type of martial art does Spike Spiegel practice?
+Options: Karate, Kung Fu, Jeet Kune Do, Taekwondo
+Answer: Jeet Kune Do
+
+Question: In "One Piece," what is the name of the ancient language inscribed on the Poneglyphs?
+Options: The Ancient Script, The Will of D, The Old Tongue, The Language of the Void
+Answer: The Ancient Script
+
+Question: In "Dragon Ball Z," who is Cooler in relation to Frieza?
+Options: His father, His brother, His son, His cousin
+Answer: His brother
+
+Question: In "Attack on Titan," what is the name of the military's commander-in-chief?
+Options: Erwin Smith, Dot Pixis, Nile Dawk, Dhalis Zachary
+Answer: Dhalis Zachary
+
+Question: In "My Hero Academia," who is the Pro Hero known as the "Rabbit Hero"?
+Options: Mt. Lady, Ryukyu, Mirko, Midnight
+Answer: Mirko
+
+Question: In "Demon Slayer," what is the name of the mountain where Tanjiro fights the spider family?
+Options: Mount Natagumo, Mount Fujikasane, Mount Kumotori, Mount Sagiri
+Answer: Mount Natagumo
+
+Question: In "Jujutsu Kaisen," what is Toge Inumaki's Cursed Technique?
+Options: Ten Shadows Technique, Cursed Speech, Limitless, Straw Doll Technique
+Answer: Cursed Speech
+
+Question: In "Hunter x Hunter," what is the name of the deadly toxin-filled assassins' test at the Zoldyck estate?
+Options: The Butler Gauntlet, The Testing Gate, The Hunter's Challenge, The Assassin's Rite
+Answer: The Testing Gate
+
+Question: In "Bleach," who is the creator of the Hōgyoku?
+Options: Sosuke Aizen, Kisuke Urahara, Mayuri Kurotsuchi, Shigekuni Yamamoto
+Answer: Kisuke Urahara
+
+Question: In "Fullmetal Alchemist," which Homunculus can regenerate from nearly any wound?
+Options: Envy, Lust, Greed, Pride
+Answer: Greed
+
+Question: In "Death Note," what is the maximum number of days one can detail a death in the notebook?
+Options: 7 days, 13 days, 23 days, 30 days
+Answer: 23 days
+
+Question: In "Pokémon," which of these is not an original starter Pokémon?
+Options: Bulbasaur, Charmander, Squirtle, Pikachu
+Answer: Pikachu
+
+Question: In "Fruits Basket," what is the name of the family afflicted by the zodiac curse?
+Options: The Honda family, The Uotani family, The Hanajima family, The Soma family
+Answer: The Soma family
+
+Question: In "Detective Conan," what organization is responsible for shrinking Shinichi?
+Options: The Magic Kaito gang, The Black Organization, The Men in Black, The Syndicate
+Answer: The Black Organization
+
+Question: In "Re:Zero," what is the name of the half-elf girl Subaru is devoted to?
+Options: Rem, Ram, Emilia, Beatrice
+Answer: Emilia
+
+Question: In "Gintama," what is Gintoki's signature weapon?
+Options: A real katana, A wooden bokuto, A steel pipe, His fists
+Answer: A wooden bokuto
+
+Question: In "Haikyuu!!," what is the position of Yu Nishinoya?
+Options: Setter, Wing Spiker, Libero, Middle Blocker
+Answer: Libero
+
+Question: In "Chainsaw Man," what is Makima the devil of?
+Options: Fear, Death, Control, Blood
+Answer: Control
+
+
