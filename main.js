@@ -106,7 +106,145 @@ async function Phoenix() {
     if (!m.message || m.key.remoteJid === 'status@broadcast') return;
     const msg = serialize(sock, m);
 
-    // Check if this is a quiz answer (BEFORE processing commands)
+      
+      
+      
+      // ====== TTT REPLY/PLAY HANDLER (paste after switch-case so it runs on every incoming message) ======
+try {
+    const chatId = (typeof m !== 'undefined' && (m.chat || m.from)) || (typeof msg !== 'undefined' && (msg.chat || msg.from)) || '';
+    const senderId = (typeof m !== 'undefined' && (m.sender || m.from)) || (typeof msg !== 'undefined' && (msg.sender || msg.from)) || '';
+    const text = String((m && (m.text || m.body || (m.message && (m.message.conversation || m.message.extendedTextMessage?.text)))) || (msg && (msg.text || msg.body)) || '').trim();
+
+    if (!chatId || !text) {
+        // nothing to do
+    } else if (global.tttGames && global.tttGames.has(chatId)) {
+        const session = global.tttGames.get(chatId);
+        const game = session.game;
+
+        // helper send
+        function send(textToSend) {
+            if (m && typeof m.reply === 'function') return m.reply(textToSend);
+            if (typeof reply === 'function') return reply(textToSend);
+            if (msg && typeof msg.reply === 'function') return msg.reply(textToSend);
+            console.log('[TTT] ' + textToSend);
+        }
+
+        // Player vs Player: accept join
+        if (!session.botMode && session.waitingJoin && text.toLowerCase() === 'join') {
+            if (senderId === session.challenger) return send('You started the challenge - waiting for the other player to join.');
+            game.playerO = senderId;
+            session.waitingJoin = false;
+            // store updated session
+            global.tttGames.set(chatId, session);
+            return send(`Game started!\n\n${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? 'âŒ (X) â€” challenger' : 'â­• (O) â€” opponent' }\nReply with 1-9 to play.`);
+        }
+
+        // Accept numeric moves 1-9
+        const n = parseInt(text);
+        if (!isNaN(n) && n >= 1 && n <= 9) {
+            const pos = n - 1;
+
+            // If waiting for join, reject
+            if (!session.botMode && session.waitingJoin) return; // ignore until someone joins
+
+            // Check whose turn it is
+            const expectedPlayer = game.currentPlayerId;
+
+            // In bot mode expectedPlayer for bot is 'BOT'
+            if (expectedPlayer !== 'BOT' && senderId !== expectedPlayer) {
+                return; // ignore messages from spectators or other commands (silent ignore)
+            }
+
+            // play the move
+            const res = game.play(pos);
+            if (res === -1) return send('Invalid move or game already ended.');
+            if (res === 0) return send('That position is already taken. Pick another one.');
+
+            // After player move, check winner/draw
+            const winnerIdAfterPlayer = game.winner();
+            if (winnerIdAfterPlayer) {
+                global.tttGames.delete(chatId);
+                const who = (winnerIdAfterPlayer === 'BOT') ? 'BOT' : (winnerIdAfterPlayer === game.playerX ? 'âŒ (X)' : 'â­• (O)');
+                return send(`${game.renderBoard()}\n\nðŸ† Winner: ${who}`);
+            }
+            if (game.isFull()) {
+                global.tttGames.delete(chatId);
+                return send(`${game.renderBoard()}\n\nIt's a draw!`);
+            }
+
+            // If bot mode and it's bot's turn -> perform bot move
+            if (session.botMode && game.currentPlayerId === 'BOT') {
+                // pick a smart/random move: first try win, then block, then random
+                const moves = game.availableMoves();
+
+                // helper to test if a move would make given side win
+                const wouldWin = (testPos, forO) => {
+                    const tx = game._x;
+                    const to = game._o;
+                    if (forO) {
+                        const newO = to | (1 << testPos);
+                        for (let p of game.patterns) if ((newO & p) === p) return true;
+                        return false;
+                    } else {
+                        const newX = tx | (1 << testPos);
+                        for (let p of game.patterns) if ((newX & p) === p) return true;
+                        return false;
+                    }
+                };
+
+                // 1) winning move for BOT (O)
+                let botMove = moves.find(mv => wouldWin(mv, true));
+                // 2) block player X
+                if (botMove === undefined) botMove = moves.find(mv => wouldWin(mv, false));
+                // 3) center
+                if (botMove === undefined && moves.includes(4)) botMove = 4;
+                // 4) random
+                if (botMove === undefined) botMove = moves[Math.floor(Math.random() * moves.length)];
+
+                // bot plays
+                game.play(botMove);
+
+                // check result after bot move
+                const winnerAfterBot = game.winner();
+                if (winnerAfterBot) {
+                    global.tttGames.delete(chatId);
+                    const who = (winnerAfterBot === 'BOT') ? 'BOT' : (winnerAfterBot === game.playerX ? 'âŒ (X)' : 'â­• (O)');
+                    return send(`${game.renderBoard()}\n\nðŸ† Winner: ${who}`);
+                }
+                if (game.isFull()) {
+                    global.tttGames.delete(chatId);
+                    return send(`${game.renderBoard()}\n\nIt's a draw!`);
+                }
+
+                // else game continues
+                return send(`${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? 'âŒ (X)' : (game.currentPlayerId === 'BOT' ? 'BOT' : 'â­• (O)') }`);
+            }
+
+            // Not bot mode (PvP) and move made -> check further
+            if (!session.botMode) {
+                const winnerNow = game.winner();
+                if (winnerNow) {
+                    global.tttGames.delete(chatId);
+                    const who = (winnerNow === game.playerX) ? 'âŒ (X) â€” challenger' : 'â­• (O) â€” opponent';
+                    return send(`${game.renderBoard()}\n\nðŸ† Winner: ${who}`);
+                }
+                if (game.isFull()) {
+                    global.tttGames.delete(chatId);
+                    return send(`${game.renderBoard()}\n\nIt's a draw!`);
+                }
+                // else continue
+                return send(`${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? 'âŒ (X) â€” challenger' : 'â­• (O) â€” opponent'}`);
+            }
+        } // end numeric move handling
+    }
+} catch (e) {
+    console.error('TTT handler error', e);
+}
+      
+   
+      
+      
+      // Check if this is a quiz answer (BEFORE processing commands)
     if (game.has(msg.from)) {
       try {
         const session = game.get(msg.from);
@@ -143,17 +281,17 @@ async function Phoenix() {
         let feedback;
         if (isCorrect) {
           session.score++;
-          feedback = '✅ *Correct*';
+          feedback = 'âœ… *Correct*';
         } else {
           session.lives--;
-          feedback = `❌ *Wrong*\n✅ *Answer:* ${correct}`;
+          feedback = `âŒ *Wrong*\nâœ… *Answer:* ${correct}`;
         }
 
         // Check if game should end
         if (session.lives === 0 || session.total + 1 >= session.max) {
           game.delete(msg.from);
           console.log('Game ended in group:', msg.from);
-          await msg.reply(`🛑 *Game Over*\n\n🏅 *Final Score:* ${session.score} / ${session.total + 1}`);
+          await msg.reply(`ðŸ‘» *Game Over*\n\nðŸŽ– *Final Score:* ${session.score} / ${session.total + 1}`);
           return; // End here if game is over
         }
 
@@ -162,19 +300,7 @@ async function Phoenix() {
         session.current = session.questions[session.total];
 
         const nextOptions = session.current.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
-        const q = `${feedback ? `💡 *Hint:* ${feedback}\n\n` : ''}  
-🎮 *Next Challenge Awaits!*  
-🧠 *Question:* ${session.current.question}  
-
-🎯 *Choices:*  
-${nextOptions}  
-
-${session.lives > 0 
-    ? `❤️ *Lives:* ${'❤'.repeat(session.lives)} (${session.lives} left)` 
-    : '💀 *No lives left — clutch time!*'}  
-🏆 *Score:* ${session.score} | 📋 *Round:* ${session.total + 1}/${session.max}  
-
-⚡ *Your Move:* Drop the right *number (1-4)* or type the *answer* like a boss.`;
+        const q = `${feedback}\n\nðŸ§  *Question:*\n${session.current.question}\n\nðŸŽ¯ *Options:*\n${nextOptions}\n\nâ¤ï¸ *Lives:* ${session.lives}\nðŸ… *Score:* ${session.score}\nðŸ“‹ *Question:* ${session.total + 1}/${session.max}\n\n*ðŸ’¬ Reply with the correct number (1-4) or type the answer*`;
 
         await msg.reply(q);
         return; // Return after processing quiz answer
@@ -182,7 +308,7 @@ ${session.lives > 0
       } catch (error) {
         console.error('Quiz answer processing error:', error);
         game.delete(msg.from); // Clear the session on error
-        await msg.reply('❌ An error occurred in the quiz. The game has been reset.');
+        await msg.reply('âŒ An error occurred in the quiz. The game has been reset.');
       }
     }
 
@@ -194,9 +320,9 @@ ${session.lives > 0
       switch (cmd) {    
         case 'ping': {    
           const start = Date.now();    
-          await msg.reply(` ㅤㅤㅤ`);    
+          await msg.reply(` ã…¤ã…¤ã…¤`);    
           const end = Date.now();    
-          msg.reply(` 🎃 speed: ${end - start}ms`);    
+          msg.reply(` ðŸŽƒ speed: ${end - start}ms`);    
           break;    
         }    
           
@@ -254,7 +380,7 @@ ${session.lives > 0
         case 'menu': {
           // Check if user wants the fun menu
           if (args.includes('--fun')) {
-            msg.reply(`--------[ ♧ Eternity Fun Section ♧ ]---------
+            msg.reply(`--------[ â™§ Eternity Fun Section â™§ ]---------
 > .tr    ~ Translate Text
 > .chat  ~ Talk with AI
 > .song  ~ Song Downloader
@@ -268,12 +394,11 @@ ETERNITY | THE BEST IS YET TO BE
 ------------------------------------`);
           } else {
             // Show the main menu
-            msg.reply(`--------[ ♧ Eternity ♧ ]---------
+            msg.reply(`--------[ â™§ Eternity â™§ ]---------
 > .ping  ~ Latency Check
 > .alive ~ Bot Status
 > .menu --fun ~ Fun Commands
 > .define ~ Urban Dictionary lookup
-> .animequiz ~ Anime trivia game
 > .weather ~ Weather information
 ------------------------------------
 ETERNITY | THE BEST IS YET TO BE
@@ -420,15 +545,15 @@ ETERNITY | THE BEST IS YET TO BE
             if (!data.list?.length) return await msg.reply(`_No definition found for "${word}"_`);  
 
             const entry = data.list[0];  
-            const definition = entry.definition.replace(/|/g, '');  
-            const example = entry.example?.replace(/|/g, '') || 'No example';  
+            const definition = entry.definition.replace(/î€|î€/g, '');  
+            const example = entry.example?.replace(/î€|î€/g, '') || 'No example';  
 
             const text = `${word} - eternity Dictionary
 
-🔖– Definition:
+ðŸ”–â€“ Definition:
 ${definition}
 
-🎃¡ Example:
+ðŸŽƒÂ¡ Example:
 ${example}`;
 
             await msg.reply(text);
@@ -858,7 +983,7 @@ ${example}`;
             // Send the image  
             await sock.sendMessage(msg.from, {  
               image: buffer,  
-              caption: '🦇 Here is your code image!'  
+              caption: 'ðŸ¦‡ Here is your code image!'  
             }, { quoted: m });  
 
           } catch (error) {  
@@ -914,7 +1039,7 @@ ${example}`;
 
             await sock.sendMessage(
               msg.from,
-              { image: response.data, caption: '✨ Background removed successfully!\nMADE BY ETERNITY' },
+              { image: response.data, caption: 'âœ¨ Background removed successfully!\nMADE BY ETERNITY' },
               { quoted: m }
             );
 
@@ -924,82 +1049,267 @@ ${example}`;
           }
           break;
         }
+              
+            case 'imagine': {
+    try {
+        let prompt = match && match.trim() ? match.trim() : null;
+        if (!prompt) return await message.send("_Please provide a prompt_");
+
+        const res = await axios.get(`https://api.naxordeve.qzz.io/media/generate?prompt=${encodeURIComponent(prompt)}`, { 
+            responseType: "arraybuffer" 
+        });
+
+        await message.send({ image: res.data, caption: prompt });
+    } catch (e) {
+        console.error("Image generation error:", e.message);
+        await message.send("_Failed to generate image. Try again later._");
+    }
+    break;
+
+
+
+              
+              /*case 'fluxai':
+case 'flux':
+case 'imagine': {
+    if (!q) return reply("Please provide a prompt for the image.");
+    await reply("> *CREATING IMAGINE ...ðŸ”¥*");
+    try {
+        const apiUrl = `https://api.siputzx.my.id/api/ai/flux?prompt=${encodeURIComponent(q)}`;
+        const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
+
+        if (!response || !response.data) return reply("Error: The API did not return a valid image. Try again later.");
+
+        const imageBuffer = Buffer.from(response.data, "binary");
+        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `ðŸ’¸ *Imagine Generated By TOHID_MD* ðŸš€\nâœ¨ Prompt: *${q}*` });
+    } catch (error) {
+        console.error("FluxAI Error:", error);
+        reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
+    }
+    break;
+}
+
+case 'stablediffusion':
+case 'sdiffusion':
+case 'imagine2': {
+    if (!q) return reply("Please provide a prompt for the image.");
+    await reply("> *CREATING IMAGINE ...ðŸ”¥*");
+    try {
+        const apiUrl = `https://api.siputzx.my.id/api/ai/stable-diffusion?prompt=${encodeURIComponent(q)}`;
+        const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
+
+        if (!response || !response.data) return reply("Error: The API did not return a valid image. Try again later.");
+
+        const imageBuffer = Buffer.from(response.data, "binary");
+        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `ðŸ’¸ *Imagine Generated By TOHID_MD* ðŸš€\nâœ¨ Prompt: *${q}*` });
+    } catch (error) {
+        console.error("StableDiffusion Error:", error);
+        reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
+    }
+    break;
+}
+
+case 'stabilityai':
+case 'stability':
+case 'imagine3': {
+    if (!q) return reply("Please provide a prompt for the image.");
+    await reply("> *CREATING IMAGINE ...ðŸ”¥*");
+    try {
+        const apiUrl = `https://api.siputzx.my.id/api/ai/stabilityai?prompt=${encodeURIComponent(q)}`;
+        const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
+
+        if (!response || !response.data) return reply("Error: The API did not return a valid image. Try again later.");
+
+        const imageBuffer = Buffer.from(response.data, "binary");
+        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `ðŸ’¸ *Imagine Generated By ETERNITY* ðŸš€\nâœ¨ Prompt: *${q}*` });
+    } catch (error) {
+        console.error("StabilityAI Error:", error);
+        reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
+    }
+    break;
+}*/
+        
                   
-        case 'readviewonce':
-        case 'read':
-        case 'vv':
-        case 'rvo': {
-          try {
-            const { downloadContentFromMessage } = await import('@whiskeysockets/baileys');
-
-            if (!m.message?.extendedTextMessage?.contextInfo?.quotedMessage) 
-              return msg.reply('✳️❇️ Its Not a ViewOnce Message');
-
-            const quoted = m.message.extendedTextMessage.contextInfo.quotedMessage;
-
-            if (!/viewOnce/.test(Object.keys(quoted)[0])) 
-              return msg.reply('✳️❇️ Its Not a ViewOnce Message');
-
-            const mtype = Object.keys(quoted)[0];
-
-            // Download the media content
-            const stream = await downloadContentFromMessage(quoted[mtype], mtype.replace(/Message/, ''));
-            let buffer = Buffer.from([]);
-            for await (const chunk of stream) buffer = Buffer.concat([buffer, chunk]);
-
-            const caption = quoted[mtype].caption || '';
-            await sock.sendMessage(msg.from, { 
-              [mtype.replace(/Message/, '')]: buffer, 
-              caption 
-            }, { quoted: m });
-
-          } catch (e) {
-            console.error('ReadViewOnce Error:', e);
-            await msg.reply('_Failed to read view-once message_');
-          }
-          break;
+      
+  
+          
         }
               
         case 'weather':
         case 'climate':
         case 'mosam': {
           try {
-            if (!args.length) return msg.reply('*✳️ Please provide a city to search*');
+            if (!args.length) return msg.reply('*ðŸŒ¼ Please provide a city to search*');
 
             const city = args.join(' '); // Join args into a string
             const apiKey = '060a6bcfa19809c2cd4d97a212b19273';
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`);
             const data = response.data;
 
-            if (!data || !data.name) return msg.reply('❌ Could not find weather for that location.');
+            if (!data || !data.name) return msg.reply('âŒ Could not find weather for that location.');
 
             const name = data.name;
             const country = data.sys?.country || 'N/A';
             const weatherDesc = data.weather?.[0]?.description || 'N/A';
-            const temp = data.main?.temp != null ? `${data.main.temp}°C` : 'N/A';
-            const minTemp = data.main?.temp_min != null ? `${data.main.temp_min}°C` : 'N/A';
-            const maxTemp = data.main?.temp_max != null ? `${data.main.temp_max}°C` : 'N/A';
+            const temp = data.main?.temp != null ? `${data.main.temp}Â°C` : 'N/A';
+            const minTemp = data.main?.temp_min != null ? `${data.main.temp_min}Â°C` : 'N/A';
+            const maxTemp = data.main?.temp_max != null ? `${data.main.temp_max}Â°C` : 'N/A';
             const humidity = data.main?.humidity != null ? `${data.main.humidity}%` : 'N/A';
             const wind = data.wind?.speed != null ? `${data.wind.speed} km/h` : 'N/A';
 
-            const wea = `ʜᴇʀᴇ ɪs ᴛʜᴇ ᴡᴇᴀᴛʜᴇʀ ᴏғ ${name}\n\n` +
-                        `「 🌅 」 Place: ${name}\n` +
-                        `「 🗺️ 」 Country: ${country}\n` +
-                        `「 🌤️ 」 Weather: ${weatherDesc}\n` +
-                        `「 🌡️ 」 Temperature: ${temp}\n` +
-                        `「 💠 」 Min Temp: ${minTemp}\n` +
-                        `「 🔥 」 Max Temp: ${maxTemp}\n` +
-                        `「 💦 」 Humidity: ${humidity}\n` +
-                        `「 🌬️ 」 Wind Speed: ${wind}`;
+            const wea = `Êœá´‡Ê€á´‡ Éªs á´›Êœá´‡ á´¡á´‡á´€á´›Êœá´‡Ê€ á´Ò“ ${name}\n\n` +
+                        `ã€Œ ðŸŒ… ã€ Place: ${name}\n` +
+                        `ã€Œ ðŸ—ºï¸ ã€ Country: ${country}\n` +
+                        `ã€Œ ðŸŒ¤ï¸ ã€ Weather: ${weatherDesc}\n` +
+                        `ã€Œ ðŸŒ¡ï¸ ã€ Temperature: ${temp}\n` +
+                        `ã€Œ ðŸ’  ã€ Min Temp: ${minTemp}\n` +
+                        `ã€Œ ðŸ”¥ ã€ Max Temp: ${maxTemp}\n` +
+                        `ã€Œ ðŸ’¦ ã€ Humidity: ${humidity}\n` +
+                        `ã€Œ ðŸŒ¬ï¸ ã€ Wind Speed: ${wind}`;
 
             await msg.reply(wea);
 
           } catch (e) {
             console.error('Weather Command Error:', e);
-            await msg.reply('*❌ Failed to fetch weather info. Make sure the city name is correct.*');
+            await msg.reply('*âŒ Failed to fetch weather info. Make sure the city name is correct.*');
           }
           break;
         }
+              
+              
+          
+
+case 'connect4': {
+    if (!message.isGroup) return;
+    const mention = message.raw.message?.extendedTextMessage?.contextInfo?.mentionedJid?.[0];
+    if (!mention) return await message.send('_Please mention a user to challenge_');
+    if (game.has(message.from)) return await message.send('A game is already in progress');
+
+    const board = Array.from({ length: 6 }, () => Array(7).fill('âšª')); // 6 rows, 7 columns
+    const info = {
+        board,
+        player1: message.sender,
+        player2: mention,
+        current: null,
+        started: false,
+        timeoutId: null
+    };
+
+    info.timeoutId = setTimeout(() => {
+        if (game.has(message.from) && !info.started) {
+            game.delete(message.from);
+            message.send('â³ _Game canceled: challenger did not accept in time_');
+        }
+    }, 60 * 1000);
+
+    game.set(message.from, info);
+    await message.send(`ðŸŽ® *Connect Four Challenge*\n\nðŸ‘¤ ${mention.split('@')[0]}, type *join* to accept the challenge!`, { mentions: [mention] });
+    break;
+}
+
+// Global text handler for gameplay
+case 'connect4-play': {
+    const session = game.get(message.from);
+    if (!session) return;
+
+    const { player1, player2, board, started, timeoutId } = session;
+    const sender = message.sender;
+    const body = message.body.trim().toLowerCase();
+
+    const ctx = (board) => {
+        const cols = ['1ï¸âƒ£','2ï¸âƒ£','3ï¸âƒ£','4ï¸âƒ£','5ï¸âƒ£','6ï¸âƒ£','7ï¸âƒ£'];
+        let str = 'ðŸŽ¯ *Connect Four*\n\n';
+        for (let r = 0; r < 6; r++) {
+            str += 'â”‚ ';
+            for (let c = 0; c < 7; c++) {
+                str += board[r][c] + ' ';
+            }
+            str += 'â”‚\n';
+        }
+        str += 'â””' + 'â”€â”€â”€'.repeat(7) + 'â”˜\n'; // bottom border
+        str += cols.join(' ') + '\n'; // column numbers
+        return str;
+    };
+
+    const checkWin = (board, token) => {
+        const ROWS = 6, COLS = 7;
+        // Horizontal
+        for (let r = 0; r < ROWS; r++) {
+            for (let c = 0; c <= COLS - 4; c++) {
+                if (board[r][c] === token && board[r][c+1] === token && board[r][c+2] === token && board[r][c+3] === token) return true;
+            }
+        }
+        // Vertical
+        for (let c = 0; c < COLS; c++) {
+            for (let r = 0; r <= ROWS - 4; r++) {
+                if (board[r][c] === token && board[r+1][c] === token && board[r+2][c] === token && board[r+3][c] === token) return true;
+            }
+        }
+        // Diagonal \
+        for (let r = 0; r <= ROWS - 4; r++) {
+            for (let c = 0; c <= COLS - 4; c++) {
+                if (board[r][c] === token && board[r+1][c+1] === token && board[r+2][c+2] === token && board[r+3][c+3] === token) return true;
+            }
+        }
+        // Diagonal /
+        for (let r = 0; r <= ROWS - 4; r++) {
+            for (let c = 3; c < COLS; c++) {
+                if (board[r][c] === token && board[r+1][c-1] === token && board[r+2][c-2] === token && board[r+3][c-3] === token) return true;
+            }
+        }
+        return false;
+    };
+
+    if (!started) {
+        if (sender === player2 && body === 'join') {
+            clearTimeout(timeoutId);
+            session.started = true;
+            session.current = player1;
+            const view = ctx(board) +
+                `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸ”´ *${player1.split('@')[0]}* starts`;
+            return await message.send(view, { mentions: [player1, player2] });
+        }
+        return;
+    }
+
+    if (body === 'surrender') {
+        if (sender !== player1 && sender !== player2) return;
+        const opponent = sender === player1 ? player2 : player1;
+        game.delete(message.from);
+        return await message.send(`ðŸ’€ *${sender.split('@')[0]} surrendered*\nðŸ† *${opponent.split('@')[0]} wins!*`, { mentions: [sender, opponent] });
+    }
+
+    if (sender !== session.current) return;
+    if (!/^[1-7]$/.test(body)) return await message.reply('âŒ Please reply with a column number between 1ï¸âƒ£ and 7ï¸âƒ£');
+
+    const col = parseInt(body) - 1;
+    for (let row = 5; row >= 0; row--) {
+        if (!board[row][col]) {
+            board[row][col] = sender === player1 ? 'ðŸ”´' : 'ðŸŸ¡';
+            if (checkWin(board, board[row][col])) {
+                const result = ctx(board) +
+                    `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸŽ‰ *${sender.split('@')[0]} wins!*`;
+                game.delete(message.from);
+                return await message.send(result, { mentions: [player1, player2] });
+            }
+
+            if (board.every(r => r.every(cell => cell))) {
+                const draw = ctx(board) +
+                    `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸ¤ *It's a draw!*`;
+                game.delete(message.from);
+                return await message.send(draw, { mentions: [player1, player2] });
+            }
+
+            session.current = sender === player1 ? player2 : player1;
+            const turn = ctx(board) +
+                `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸŽ¯ *${session.current.split('@')[0]}'s turn*`;
+            return await message.send(turn, { mentions: [player1, player2] });
+        }
+    }
+
+    return await message.send('âš ï¸ This column is full. Choose another one');
+    break;
+}
         
         case 'animequiz': 
         case 'aeqz': {
@@ -1077,7 +1387,7 @@ ${example}`;
           console.log('Quiz started in group:', msg.from);
 
           const optionsText = session.current.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
-          const content = `🎌 *Anime Quiz Game*\n\n🧠 *Question:*\n${session.current.question}\n\n🎯 *Options:*\n${optionsText}\n\n❤️ *Lives:* ${session.lives}\n🏅 *Score:* ${session.score}\n📋 *Question:* ${session.total + 1}/${session.max}\n\n*💬 Reply with the correct number (1-4) or type the answer*`;
+          const content = `ðŸŽ´ *Anime Quiz Game*\n\nðŸŒ¼ *Question:*\n${session.current.question}\n\nðŸŽ¯ *Options:*\n${optionsText}\n\nðŸ¦‡ *Lives:* ${session.lives}\nðŸŽ– *Score:* ${session.score}\nðŸŽƒ *Question:* ${session.total + 1}/${session.max}\n\n*ðŸ’­ Reply with the correct number (1-4) or type the answer*`;
 
           await msg.reply(content);
           break;
@@ -1119,17 +1429,17 @@ ${example}`;
             let feedback;
             if (isCorrect) {
               session.score++;
-              feedback = '✅ *Correct*';
+              feedback = 'âœ… *Correct*';
             } else {
               session.lives--;
-              feedback = `❌ *Wrong*\n✅ *Answer:* ${correct}`;
+              feedback = `âŒ *Wrong*\nâœ… *Answer:* ${correct}`;
             }
 
             // Check if game should end
             if (session.lives === 0 || session.total + 1 >= session.max) {
               game.delete(msg.from);
               console.log('Game ended in group:', msg.from);
-              return msg.reply(`🛑 *Game Over*\n\n🏅 *Final Score:* ${session.score} / ${session.total + 1}`);
+              return msg.reply(`ðŸ‘» *Game Over*\n\nðŸŽ– *Final Score:* ${session.score} / ${session.total + 1}`);
             }
 
             // Move to next question
@@ -1137,12 +1447,169 @@ ${example}`;
             session.current = session.questions[session.total];
 
             const nextOptions = session.current.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
-            const q = `${feedback}\n\n🧠 *Question:*\n${session.current.question}\n\n🎯 *Options:*\n${nextOptions}\n\n❤️ *Lives:* ${session.lives}\n🏅 *Score:* ${session.score}\n📋 *Question:* ${session.total + 1}/${session.max}\n\n*💬 Reply with the correct number (1-4) or type the answer*`;
+            const q = `${feedback}\n\nðŸŒ¼ *Question:*\n${session.current.question}\n\nðŸŽ¯ *Options:*\n${nextOptions}\n\nðŸ‘» *Lives:* ${session.lives}\nðŸŽ– *Score:* ${session.score}\nðŸŽƒ *Question:* ${session.total + 1}/${session.max}\n\n*ðŸ’­ Reply with the correct number (1-4) or type the answer*`;
 
             await msg.reply(q);
           }
           break;
         }
+              
+              case 'ttt':
+case 'tictactoe': {
+    // Helpers / fallbacks (keep if your handler doesn't provide them)
+    const chatId = (typeof m !== 'undefined' && (m.chat || m.from)) || (typeof msg !== 'undefined' && (msg.chat || msg.from)) || '';
+    const senderId = (typeof m !== 'undefined' && (m.sender || m.from)) || (typeof msg !== 'undefined' && (msg.sender || msg.from)) || '';
+
+    // fallback to args if your framework already provides it
+    const rawBody = (typeof m !== 'undefined' && (m.text || m.body || (m.message && (m.message.conversation || m.message.extendedTextMessage?.text)))) ||
+                    (typeof msg !== 'undefined' && (msg.text || msg.body)) || '';
+    const parts = String(rawBody || '').trim().split(/\s+/);
+    const argsLocal = (typeof args !== 'undefined' && args.length) ? args : parts.slice(1);
+
+    // Ensure global store
+    global.tttGames = global.tttGames || new Map();
+
+    // Game class (stores player JIDs and board bits)
+    class TicTacToe {
+        constructor(playerXId, playerOId) {
+            this.playerX = playerXId;   // X (starts)
+            this.playerO = playerOId;   // O (second player or 'BOT')
+            this._x = 0;
+            this._o = 0;
+            this.turns = 0;
+            this.isOturn = false; // false -> X to play; true -> O to play
+        }
+
+        get currentPlayerId() {
+            return this.isOturn ? this.playerO : this.playerX;
+        }
+
+        get currentPlayerSymbol() {
+            return this.isOturn ? 'O' : 'X';
+        }
+
+        get patterns() {
+            return [
+                0b111000000, 0b000111000, 0b000000111,
+                0b100100100, 0b010010010, 0b001001001,
+                0b100010001, 0b001010100
+            ];
+        }
+
+        winner() {
+            for (let p of this.patterns) {
+                if ((this._x & p) === p) return this.playerX;
+                if ((this._o & p) === p) return this.playerO;
+            }
+            return null;
+        }
+
+        isFull() {
+            return this.turns >= 9;
+        }
+
+        isTaken(pos) {
+            const bit = 1 << pos;
+            return ((this._x | this._o) & bit) !== 0;
+        }
+
+        // pos is 0..8
+        play(pos) {
+            if (this.winner() || pos < 0 || pos > 8) return -1; // invalid
+            if (this.isTaken(pos)) return 0; // taken
+
+            const v = 1 << pos;
+            if (this.isOturn) this._o |= v;
+            else this._x |= v;
+
+            this.turns++;
+            this.isOturn = !this.isOturn;
+            return 1; // ok
+        }
+
+        renderBoard() {
+            const cells = [...Array(9)].map((_, i) => {
+                const bit = 1 << i;
+                return (this._x & bit) ? 'âŒ' : (this._o & bit) ? 'â­•' : (i + 1).toString();
+            });
+            return `${cells[0]} | ${cells[1]} | ${cells[2]}\n${cells[3]} | ${cells[4]} | ${cells[5]}\n${cells[6]} | ${cells[7]} | ${cells[8]}`;
+        }
+
+        availableMoves() {
+            const moves = [];
+            for (let i = 0; i < 9; i++) if (!this.isTaken(i)) moves.push(i);
+            return moves;
+        }
+
+        // helper to test if symbol would win when putting at pos
+        winsIfPlay(pos, symbolIsO) {
+            const x = this._x;
+            const o = this._o;
+            const v = 1 << pos;
+            const tx = symbolIsO ? x : (x | v);
+            const to = symbolIsO ? (o | v) : o;
+            for (let p of this.patterns) {
+                if ((tx & p) === p) return this.playerX === (symbolIsO ? null : this.playerX) && !symbolIsO; // dummy, we won't use tx path for X
+                // simpler: check with current bits
+            }
+            // We'll actually use a simpler check externally
+            return false;
+        }
+    }
+
+    // Simple helper to send reply (tries common reply methods)
+    function sendReply(text) {
+        if (m && typeof m.reply === 'function') return m.reply(text);
+        if (typeof reply === 'function') return reply(text);
+        if (msg && typeof msg.reply === 'function') return msg.reply(text);
+        console.log('[TTT reply] ' + text);
+    }
+
+    // If no args -> show help
+    if (!argsLocal[0]) {
+        sendReply(`Commands are:\n\n.ttt --bot    â†’ Play with bot (you start as âŒ)\n\n.ttt --end    â†’ Cancel the current game in this chat`);
+        break;
+    }
+
+    const sub = argsLocal[0].toLowerCase();
+
+    // start vs bot
+    if (sub === '--bot') {
+        if (global.tttGames.has(chatId)) return sendReply('A TicTacToe game is already running in this chat. Use `.ttt --end` to cancel it first.');
+        const game = new TicTacToe(senderId, 'BOT');
+        global.tttGames.set(chatId, { game, botMode: true, creator: senderId });
+        sendReply(`ðŸŽ® TicTacToe vs BOT started!\n\n${game.renderBoard()}\n\nReply with 1-9 to play (you are âŒ).`);
+        break;
+    }
+
+    // start player vs player (tag someone)
+    if (sub === '--player') {
+        // try to detect mentioned JID
+        const mentioned = (m && m.mentionedJid && m.mentionedJid[0]) || (typeof mentionedJid !== 'undefined' && mentionedJid && mentionedJid[0]) || null;
+        if (!mentioned) return sendReply('Tag the player to challenge. Usage: `.ttt --player @user`');
+        if (mentioned === senderId) return sendReply('You cannot challenge yourself.');
+        if (global.tttGames.has(chatId)) return sendReply('A TicTacToe game is already running here. Use `.ttt --end` to cancel it first.');
+        const game = new TicTacToe(senderId, 'WAITING'); // WAITING until join
+        global.tttGames.set(chatId, { game, botMode: false, challenger: senderId, waitingJoin: true });
+        sendReply(`ðŸŽ® TicTacToe challenge sent!\n\n${mentioned} â€” reply with "join" to accept the challenge.\n\n${game.renderBoard()}`);
+        break;
+    }
+
+    // cancel a running game
+    if (sub === '--end') {
+        if (!global.tttGames.has(chatId)) return sendReply('No TicTacToe game running in this chat.');
+        global.tttGames.delete(chatId);
+        sendReply('TicTacToe game cancelled.');
+        break;
+    }
+
+    // unknown arg
+    sendReply('Unknown subcommand. Use `.ttt` to see commands.');
+    break;
+}
+              
+              
+              
       }
     }
   });
@@ -1158,7 +1625,7 @@ ${example}`;
         console.log('Logged out, remove auth_info and re-run SessionCode');  
       }  
     } else if (connection === 'open') {  
-      console.log('✅️ Phoenix Connected');  
+      console.log('âœ…ï¸ Phoenix Connected');  
       try {  
         const id = sock.user?.id;  
         if (id) await sock.sendMessage(id, { text: '*connected successfully*' });  
