@@ -136,7 +136,7 @@ try {
             session.waitingJoin = false;
             // store updated session
             global.tttGames.set(chatId, session);
-            return send(`Game started!\n\n${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? 'âŒ (X) â€” challenger' : 'â­• (O) â€” opponent' }\nReply with 1-9 to play.`);
+            return send(`Game started!\n\n${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? '❌ (X) — challenger' : '⭕ (O) — opponent' }\nReply with 1-9 to play.`);
         }
 
         // Accept numeric moves 1-9
@@ -164,8 +164,8 @@ try {
             const winnerIdAfterPlayer = game.winner();
             if (winnerIdAfterPlayer) {
                 global.tttGames.delete(chatId);
-                const who = (winnerIdAfterPlayer === 'BOT') ? 'BOT' : (winnerIdAfterPlayer === game.playerX ? 'âŒ (X)' : 'â­• (O)');
-                return send(`${game.renderBoard()}\n\nðŸ† Winner: ${who}`);
+                const who = (winnerIdAfterPlayer === 'BOT') ? 'BOT' : (winnerIdAfterPlayer === game.playerX ? '❌ (X)' : '⭕ (O)');
+                return send(`${game.renderBoard()}\n\n🏆 Winner: ${who}`);
             }
             if (game.isFull()) {
                 global.tttGames.delete(chatId);
@@ -208,8 +208,8 @@ try {
                 const winnerAfterBot = game.winner();
                 if (winnerAfterBot) {
                     global.tttGames.delete(chatId);
-                    const who = (winnerAfterBot === 'BOT') ? 'BOT' : (winnerAfterBot === game.playerX ? 'âŒ (X)' : 'â­• (O)');
-                    return send(`${game.renderBoard()}\n\nðŸ† Winner: ${who}`);
+                    const who = (winnerAfterBot === 'BOT') ? 'BOT' : (winnerAfterBot === game.playerX ? '❌ (X)' : '⭕ (O)');
+                    return send(`${game.renderBoard()}\n\n🏆 Winner: ${who}`);
                 }
                 if (game.isFull()) {
                     global.tttGames.delete(chatId);
@@ -217,7 +217,7 @@ try {
                 }
 
                 // else game continues
-                return send(`${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? 'âŒ (X)' : (game.currentPlayerId === 'BOT' ? 'BOT' : 'â­• (O)') }`);
+                return send(`${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? '❌ (X)' : (game.currentPlayerId === 'BOT' ? 'BOT' : '⭕ (O)') }`);
             }
 
             // Not bot mode (PvP) and move made -> check further
@@ -225,15 +225,15 @@ try {
                 const winnerNow = game.winner();
                 if (winnerNow) {
                     global.tttGames.delete(chatId);
-                    const who = (winnerNow === game.playerX) ? 'âŒ (X) â€” challenger' : 'â­• (O) â€” opponent';
-                    return send(`${game.renderBoard()}\n\nðŸ† Winner: ${who}`);
+                    const who = (winnerNow === game.playerX) ? '❌ (X) — challenger' : '⭕ (O) — opponent';
+                    return send(`${game.renderBoard()}\n\n🏆 Winner: ${who}`);
                 }
                 if (game.isFull()) {
                     global.tttGames.delete(chatId);
                     return send(`${game.renderBoard()}\n\nIt's a draw!`);
                 }
                 // else continue
-                return send(`${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? 'âŒ (X) â€” challenger' : 'â­• (O) â€” opponent'}`);
+                return send(`${game.renderBoard()}\n\nTurn: ${game.currentPlayerId === game.playerX ? '❌ (X) — challenger' : '⭕ (O) — opponent'}`);
             }
         } // end numeric move handling
     }
@@ -281,17 +281,17 @@ try {
         let feedback;
         if (isCorrect) {
           session.score++;
-          feedback = 'âœ… *Correct*';
+          feedback = '✅ *Correct*';
         } else {
           session.lives--;
-          feedback = `âŒ *Wrong*\nâœ… *Answer:* ${correct}`;
+          feedback = `❌ *Wrong*\n✅ *Answer:* ${correct}`;
         }
 
         // Check if game should end
         if (session.lives === 0 || session.total + 1 >= session.max) {
           game.delete(msg.from);
           console.log('Game ended in group:', msg.from);
-          await msg.reply(`ðŸ‘» *Game Over*\n\nðŸŽ– *Final Score:* ${session.score} / ${session.total + 1}`);
+          await msg.reply(`👻 *Game Over*\n\n🎖 *Final Score:* ${session.score} / ${session.total + 1}`);
           return; // End here if game is over
         }
 
@@ -300,7 +300,7 @@ try {
         session.current = session.questions[session.total];
 
         const nextOptions = session.current.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
-        const q = `${feedback}\n\nðŸ§  *Question:*\n${session.current.question}\n\nðŸŽ¯ *Options:*\n${nextOptions}\n\nâ¤ï¸ *Lives:* ${session.lives}\nðŸ… *Score:* ${session.score}\nðŸ“‹ *Question:* ${session.total + 1}/${session.max}\n\n*ðŸ’¬ Reply with the correct number (1-4) or type the answer*`;
+        const q = `${feedback}\n\n🧠 *Question:*\n${session.current.question}\n\n🎯 *Options:*\n${nextOptions}\n\n❤️ *Lives:* ${session.lives}\n🏅 *Score:* ${session.score}\n📋 *Question:* ${session.total + 1}/${session.max}\n\n*💬 Reply with the correct number (1-4) or type the answer*`;
 
         await msg.reply(q);
         return; // Return after processing quiz answer
@@ -308,7 +308,7 @@ try {
       } catch (error) {
         console.error('Quiz answer processing error:', error);
         game.delete(msg.from); // Clear the session on error
-        await msg.reply('âŒ An error occurred in the quiz. The game has been reset.');
+        await msg.reply('❌ An error occurred in the quiz. The game has been reset.');
       }
     }
 
@@ -320,9 +320,9 @@ try {
       switch (cmd) {    
         case 'ping': {    
           const start = Date.now();    
-          await msg.reply(` ã…¤ã…¤ã…¤`);    
+          await msg.reply(` ㅤㅤㅤ`);    
           const end = Date.now();    
-          msg.reply(` ðŸŽƒ speed: ${end - start}ms`);    
+          msg.reply(` 🎃 speed: ${end - start}ms`);    
           break;    
         }    
           
@@ -380,7 +380,7 @@ try {
         case 'menu': {
           // Check if user wants the fun menu
           if (args.includes('--fun')) {
-            msg.reply(`--------[ â™§ Eternity Fun Section â™§ ]---------
+            msg.reply(`--------[ ♧ Eternity Fun Section ♧ ]---------
 > .tr    ~ Translate Text
 > .chat  ~ Talk with AI
 > .song  ~ Song Downloader
@@ -394,7 +394,7 @@ ETERNITY | THE BEST IS YET TO BE
 ------------------------------------`);
           } else {
             // Show the main menu
-            msg.reply(`--------[ â™§ Eternity â™§ ]---------
+            msg.reply(`--------[ ♧ Eternity ♧ ]---------
 > .ping  ~ Latency Check
 > .alive ~ Bot Status
 > .menu --fun ~ Fun Commands
@@ -545,15 +545,15 @@ ETERNITY | THE BEST IS YET TO BE
             if (!data.list?.length) return await msg.reply(`_No definition found for "${word}"_`);  
 
             const entry = data.list[0];  
-            const definition = entry.definition.replace(/î€|î€/g, '');  
-            const example = entry.example?.replace(/î€|î€/g, '') || 'No example';  
+            const definition = entry.definition.replace(/|/g, '');  
+            const example = entry.example?.replace(/|/g, '') || 'No example';  
 
             const text = `${word} - eternity Dictionary
 
-ðŸ”–â€“ Definition:
+🔖– Definition:
 ${definition}
 
-ðŸŽƒÂ¡ Example:
+🎃¡ Example:
 ${example}`;
 
             await msg.reply(text);
@@ -983,7 +983,7 @@ ${example}`;
             // Send the image  
             await sock.sendMessage(msg.from, {  
               image: buffer,  
-              caption: 'ðŸ¦‡ Here is your code image!'  
+              caption: '🦇 Here is your code image!'  
             }, { quoted: m });  
 
           } catch (error) {  
@@ -1039,7 +1039,7 @@ ${example}`;
 
             await sock.sendMessage(
               msg.from,
-              { image: response.data, caption: 'âœ¨ Background removed successfully!\nMADE BY ETERNITY' },
+              { image: response.data, caption: '✨ Background removed successfully!\nMADE BY ETERNITY' },
               { quoted: m }
             );
 
@@ -1073,7 +1073,7 @@ ${example}`;
 case 'flux':
 case 'imagine': {
     if (!q) return reply("Please provide a prompt for the image.");
-    await reply("> *CREATING IMAGINE ...ðŸ”¥*");
+    await reply("> *CREATING IMAGINE ...🔥*");
     try {
         const apiUrl = `https://api.siputzx.my.id/api/ai/flux?prompt=${encodeURIComponent(q)}`;
         const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
@@ -1081,7 +1081,7 @@ case 'imagine': {
         if (!response || !response.data) return reply("Error: The API did not return a valid image. Try again later.");
 
         const imageBuffer = Buffer.from(response.data, "binary");
-        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `ðŸ’¸ *Imagine Generated By TOHID_MD* ðŸš€\nâœ¨ Prompt: *${q}*` });
+        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `💸 *Imagine Generated By TOHID_MD* 🚀\n✨ Prompt: *${q}*` });
     } catch (error) {
         console.error("FluxAI Error:", error);
         reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
@@ -1093,7 +1093,7 @@ case 'stablediffusion':
 case 'sdiffusion':
 case 'imagine2': {
     if (!q) return reply("Please provide a prompt for the image.");
-    await reply("> *CREATING IMAGINE ...ðŸ”¥*");
+    await reply("> *CREATING IMAGINE ...🔥*");
     try {
         const apiUrl = `https://api.siputzx.my.id/api/ai/stable-diffusion?prompt=${encodeURIComponent(q)}`;
         const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
@@ -1101,7 +1101,7 @@ case 'imagine2': {
         if (!response || !response.data) return reply("Error: The API did not return a valid image. Try again later.");
 
         const imageBuffer = Buffer.from(response.data, "binary");
-        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `ðŸ’¸ *Imagine Generated By TOHID_MD* ðŸš€\nâœ¨ Prompt: *${q}*` });
+        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `💸 *Imagine Generated By TOHID_MD* 🚀\n✨ Prompt: *${q}*` });
     } catch (error) {
         console.error("StableDiffusion Error:", error);
         reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
@@ -1113,7 +1113,7 @@ case 'stabilityai':
 case 'stability':
 case 'imagine3': {
     if (!q) return reply("Please provide a prompt for the image.");
-    await reply("> *CREATING IMAGINE ...ðŸ”¥*");
+    await reply("> *CREATING IMAGINE ...🔥*");
     try {
         const apiUrl = `https://api.siputzx.my.id/api/ai/stabilityai?prompt=${encodeURIComponent(q)}`;
         const response = await axios.get(apiUrl, { responseType: "arraybuffer" });
@@ -1121,7 +1121,7 @@ case 'imagine3': {
         if (!response || !response.data) return reply("Error: The API did not return a valid image. Try again later.");
 
         const imageBuffer = Buffer.from(response.data, "binary");
-        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `ðŸ’¸ *Imagine Generated By ETERNITY* ðŸš€\nâœ¨ Prompt: *${q}*` });
+        await conn.sendMessage(m.chat, { image: imageBuffer, caption: `💸 *Imagine Generated By ETERNITY* 🚀\n✨ Prompt: *${q}*` });
     } catch (error) {
         console.error("StabilityAI Error:", error);
         reply(`An error occurred: ${error.response?.data?.message || error.message || "Unknown error"}`);
@@ -1139,39 +1139,39 @@ case 'imagine3': {
         case 'climate':
         case 'mosam': {
           try {
-            if (!args.length) return msg.reply('*ðŸŒ¼ Please provide a city to search*');
+            if (!args.length) return msg.reply('*🌼 Please provide a city to search*');
 
             const city = args.join(' '); // Join args into a string
             const apiKey = '060a6bcfa19809c2cd4d97a212b19273';
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`);
             const data = response.data;
 
-            if (!data || !data.name) return msg.reply('âŒ Could not find weather for that location.');
+            if (!data || !data.name) return msg.reply('❌ Could not find weather for that location.');
 
             const name = data.name;
             const country = data.sys?.country || 'N/A';
             const weatherDesc = data.weather?.[0]?.description || 'N/A';
-            const temp = data.main?.temp != null ? `${data.main.temp}Â°C` : 'N/A';
-            const minTemp = data.main?.temp_min != null ? `${data.main.temp_min}Â°C` : 'N/A';
-            const maxTemp = data.main?.temp_max != null ? `${data.main.temp_max}Â°C` : 'N/A';
+            const temp = data.main?.temp != null ? `${data.main.temp}°C` : 'N/A';
+            const minTemp = data.main?.temp_min != null ? `${data.main.temp_min}°C` : 'N/A';
+            const maxTemp = data.main?.temp_max != null ? `${data.main.temp_max}°C` : 'N/A';
             const humidity = data.main?.humidity != null ? `${data.main.humidity}%` : 'N/A';
             const wind = data.wind?.speed != null ? `${data.wind.speed} km/h` : 'N/A';
 
-            const wea = `Êœá´‡Ê€á´‡ Éªs á´›Êœá´‡ á´¡á´‡á´€á´›Êœá´‡Ê€ á´Ò“ ${name}\n\n` +
-                        `ã€Œ ðŸŒ… ã€ Place: ${name}\n` +
-                        `ã€Œ ðŸ—ºï¸ ã€ Country: ${country}\n` +
-                        `ã€Œ ðŸŒ¤ï¸ ã€ Weather: ${weatherDesc}\n` +
-                        `ã€Œ ðŸŒ¡ï¸ ã€ Temperature: ${temp}\n` +
-                        `ã€Œ ðŸ’  ã€ Min Temp: ${minTemp}\n` +
-                        `ã€Œ ðŸ”¥ ã€ Max Temp: ${maxTemp}\n` +
-                        `ã€Œ ðŸ’¦ ã€ Humidity: ${humidity}\n` +
-                        `ã€Œ ðŸŒ¬ï¸ ã€ Wind Speed: ${wind}`;
+            const wea = `ʜᴇʀᴇ ɪs ᴛʜᴇ ᴡᴇᴀᴛʜᴇʀ ᴏғ ${name}\n\n` +
+                        `「 🌅 」 Place: ${name}\n` +
+                        `「 🗺️ 」 Country: ${country}\n` +
+                        `「 🌤️ 」 Weather: ${weatherDesc}\n` +
+                        `「 🌡️ 」 Temperature: ${temp}\n` +
+                        `「 💠 」 Min Temp: ${minTemp}\n` +
+                        `「 🔥 」 Max Temp: ${maxTemp}\n` +
+                        `「 💦 」 Humidity: ${humidity}\n` +
+                        `「 🌬️ 」 Wind Speed: ${wind}`;
 
             await msg.reply(wea);
 
           } catch (e) {
             console.error('Weather Command Error:', e);
-            await msg.reply('*âŒ Failed to fetch weather info. Make sure the city name is correct.*');
+            await msg.reply('*❌ Failed to fetch weather info. Make sure the city name is correct.*');
           }
           break;
         }
@@ -1185,7 +1185,7 @@ case 'connect4': {
     if (!mention) return await message.send('_Please mention a user to challenge_');
     if (game.has(message.from)) return await message.send('A game is already in progress');
 
-    const board = Array.from({ length: 6 }, () => Array(7).fill('âšª')); // 6 rows, 7 columns
+    const board = Array.from({ length: 6 }, () => Array(7).fill('⚪')); // 6 rows, 7 columns
     const info = {
         board,
         player1: message.sender,
@@ -1198,12 +1198,12 @@ case 'connect4': {
     info.timeoutId = setTimeout(() => {
         if (game.has(message.from) && !info.started) {
             game.delete(message.from);
-            message.send('â³ _Game canceled: challenger did not accept in time_');
+            message.send('⏳ _Game canceled: challenger did not accept in time_');
         }
     }, 60 * 1000);
 
     game.set(message.from, info);
-    await message.send(`ðŸŽ® *Connect Four Challenge*\n\nðŸ‘¤ ${mention.split('@')[0]}, type *join* to accept the challenge!`, { mentions: [mention] });
+    await message.send(`🎮 *Connect Four Challenge*\n\n👤 ${mention.split('@')[0]}, type *join* to accept the challenge!`, { mentions: [mention] });
     break;
 }
 
@@ -1217,16 +1217,16 @@ case 'connect4-play': {
     const body = message.body.trim().toLowerCase();
 
     const ctx = (board) => {
-        const cols = ['1ï¸âƒ£','2ï¸âƒ£','3ï¸âƒ£','4ï¸âƒ£','5ï¸âƒ£','6ï¸âƒ£','7ï¸âƒ£'];
-        let str = 'ðŸŽ¯ *Connect Four*\n\n';
+        const cols = ['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣'];
+        let str = '🎯 *Connect Four*\n\n';
         for (let r = 0; r < 6; r++) {
-            str += 'â”‚ ';
+            str += '│ ';
             for (let c = 0; c < 7; c++) {
                 str += board[r][c] + ' ';
             }
-            str += 'â”‚\n';
+            str += '│\n';
         }
-        str += 'â””' + 'â”€â”€â”€'.repeat(7) + 'â”˜\n'; // bottom border
+        str += '└' + '───'.repeat(7) + '┘\n'; // bottom border
         str += cols.join(' ') + '\n'; // column numbers
         return str;
     };
@@ -1266,7 +1266,7 @@ case 'connect4-play': {
             session.started = true;
             session.current = player1;
             const view = ctx(board) +
-                `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸ”´ *${player1.split('@')[0]}* starts`;
+                `\n🔴 <${player1.split('@')[0]}> vs 🟡 <${player2.split('@')[0]}>\n\n🔴 *${player1.split('@')[0]}* starts`;
             return await message.send(view, { mentions: [player1, player2] });
         }
         return;
@@ -1276,38 +1276,38 @@ case 'connect4-play': {
         if (sender !== player1 && sender !== player2) return;
         const opponent = sender === player1 ? player2 : player1;
         game.delete(message.from);
-        return await message.send(`ðŸ’€ *${sender.split('@')[0]} surrendered*\nðŸ† *${opponent.split('@')[0]} wins!*`, { mentions: [sender, opponent] });
+        return await message.send(`💀 *${sender.split('@')[0]} surrendered*\n🏆 *${opponent.split('@')[0]} wins!*`, { mentions: [sender, opponent] });
     }
 
     if (sender !== session.current) return;
-    if (!/^[1-7]$/.test(body)) return await message.reply('âŒ Please reply with a column number between 1ï¸âƒ£ and 7ï¸âƒ£');
+    if (!/^[1-7]$/.test(body)) return await message.reply('❌ Please reply with a column number between 1️⃣ and 7️⃣');
 
     const col = parseInt(body) - 1;
     for (let row = 5; row >= 0; row--) {
         if (!board[row][col]) {
-            board[row][col] = sender === player1 ? 'ðŸ”´' : 'ðŸŸ¡';
+            board[row][col] = sender === player1 ? '🔴' : '🟡';
             if (checkWin(board, board[row][col])) {
                 const result = ctx(board) +
-                    `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸŽ‰ *${sender.split('@')[0]} wins!*`;
+                    `\n🔴 <${player1.split('@')[0]}> vs 🟡 <${player2.split('@')[0]}>\n\n🎉 *${sender.split('@')[0]} wins!*`;
                 game.delete(message.from);
                 return await message.send(result, { mentions: [player1, player2] });
             }
 
             if (board.every(r => r.every(cell => cell))) {
                 const draw = ctx(board) +
-                    `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸ¤ *It's a draw!*`;
+                    `\n🔴 <${player1.split('@')[0]}> vs 🟡 <${player2.split('@')[0]}>\n\n🤝 *It's a draw!*`;
                 game.delete(message.from);
                 return await message.send(draw, { mentions: [player1, player2] });
             }
 
             session.current = sender === player1 ? player2 : player1;
             const turn = ctx(board) +
-                `\nðŸ”´ <${player1.split('@')[0]}> vs ðŸŸ¡ <${player2.split('@')[0]}>\n\nðŸŽ¯ *${session.current.split('@')[0]}'s turn*`;
+                `\n🔴 <${player1.split('@')[0]}> vs 🟡 <${player2.split('@')[0]}>\n\n🎯 *${session.current.split('@')[0]}'s turn*`;
             return await message.send(turn, { mentions: [player1, player2] });
         }
     }
 
-    return await message.send('âš ï¸ This column is full. Choose another one');
+    return await message.send('⚠️ This column is full. Choose another one');
     break;
 }
         
@@ -1387,7 +1387,7 @@ case 'connect4-play': {
           console.log('Quiz started in group:', msg.from);
 
           const optionsText = session.current.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
-          const content = `ðŸŽ´ *Anime Quiz Game*\n\nðŸŒ¼ *Question:*\n${session.current.question}\n\nðŸŽ¯ *Options:*\n${optionsText}\n\nðŸ¦‡ *Lives:* ${session.lives}\nðŸŽ– *Score:* ${session.score}\nðŸŽƒ *Question:* ${session.total + 1}/${session.max}\n\n*ðŸ’­ Reply with the correct number (1-4) or type the answer*`;
+          const content = `🎴 *Anime Quiz Game*\n\n🌼 *Question:*\n${session.current.question}\n\n🎯 *Options:*\n${optionsText}\n\n🦇 *Lives:* ${session.lives}\n🎖 *Score:* ${session.score}\n🎃 *Question:* ${session.total + 1}/${session.max}\n\n*💭 Reply with the correct number (1-4) or type the answer*`;
 
           await msg.reply(content);
           break;
@@ -1429,17 +1429,17 @@ case 'connect4-play': {
             let feedback;
             if (isCorrect) {
               session.score++;
-              feedback = 'âœ… *Correct*';
+              feedback = '✅ *Correct*';
             } else {
               session.lives--;
-              feedback = `âŒ *Wrong*\nâœ… *Answer:* ${correct}`;
+              feedback = `❌ *Wrong*\n✅ *Answer:* ${correct}`;
             }
 
             // Check if game should end
             if (session.lives === 0 || session.total + 1 >= session.max) {
               game.delete(msg.from);
               console.log('Game ended in group:', msg.from);
-              return msg.reply(`ðŸ‘» *Game Over*\n\nðŸŽ– *Final Score:* ${session.score} / ${session.total + 1}`);
+              return msg.reply(`👻 *Game Over*\n\n🎖 *Final Score:* ${session.score} / ${session.total + 1}`);
             }
 
             // Move to next question
@@ -1447,7 +1447,7 @@ case 'connect4-play': {
             session.current = session.questions[session.total];
 
             const nextOptions = session.current.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
-            const q = `${feedback}\n\nðŸŒ¼ *Question:*\n${session.current.question}\n\nðŸŽ¯ *Options:*\n${nextOptions}\n\nðŸ‘» *Lives:* ${session.lives}\nðŸŽ– *Score:* ${session.score}\nðŸŽƒ *Question:* ${session.total + 1}/${session.max}\n\n*ðŸ’­ Reply with the correct number (1-4) or type the answer*`;
+            const q = `${feedback}\n\n🌼 *Question:*\n${session.current.question}\n\n🎯 *Options:*\n${nextOptions}\n\n👻 *Lives:* ${session.lives}\n🎖 *Score:* ${session.score}\n🎃 *Question:* ${session.total + 1}/${session.max}\n\n*💭 Reply with the correct number (1-4) or type the answer*`;
 
             await msg.reply(q);
           }
@@ -1530,7 +1530,7 @@ case 'tictactoe': {
         renderBoard() {
             const cells = [...Array(9)].map((_, i) => {
                 const bit = 1 << i;
-                return (this._x & bit) ? 'âŒ' : (this._o & bit) ? 'â­•' : (i + 1).toString();
+                return (this._x & bit) ? '❌' : (this._o & bit) ? '⭕' : (i + 1).toString();
             });
             return `${cells[0]} | ${cells[1]} | ${cells[2]}\n${cells[3]} | ${cells[4]} | ${cells[5]}\n${cells[6]} | ${cells[7]} | ${cells[8]}`;
         }
@@ -1567,7 +1567,7 @@ case 'tictactoe': {
 
     // If no args -> show help
     if (!argsLocal[0]) {
-        sendReply(`Commands are:\n\n.ttt --bot    â†’ Play with bot (you start as âŒ)\n\n.ttt --end    â†’ Cancel the current game in this chat`);
+        sendReply(`Commands are:\n\n.ttt --bot    → Play with bot (you start as ❌)\n\n.ttt --end    → Cancel the current game in this chat`);
         break;
     }
 
@@ -1578,7 +1578,7 @@ case 'tictactoe': {
         if (global.tttGames.has(chatId)) return sendReply('A TicTacToe game is already running in this chat. Use `.ttt --end` to cancel it first.');
         const game = new TicTacToe(senderId, 'BOT');
         global.tttGames.set(chatId, { game, botMode: true, creator: senderId });
-        sendReply(`ðŸŽ® TicTacToe vs BOT started!\n\n${game.renderBoard()}\n\nReply with 1-9 to play (you are âŒ).`);
+        sendReply(`🎮 TicTacToe vs BOT started!\n\n${game.renderBoard()}\n\nReply with 1-9 to play (you are ❌).`);
         break;
     }
 
@@ -1591,7 +1591,7 @@ case 'tictactoe': {
         if (global.tttGames.has(chatId)) return sendReply('A TicTacToe game is already running here. Use `.ttt --end` to cancel it first.');
         const game = new TicTacToe(senderId, 'WAITING'); // WAITING until join
         global.tttGames.set(chatId, { game, botMode: false, challenger: senderId, waitingJoin: true });
-        sendReply(`ðŸŽ® TicTacToe challenge sent!\n\n${mentioned} â€” reply with "join" to accept the challenge.\n\n${game.renderBoard()}`);
+        sendReply(`🎮 TicTacToe challenge sent!\n\n${mentioned} — reply with "join" to accept the challenge.\n\n${game.renderBoard()}`);
         break;
     }
 
@@ -1625,7 +1625,7 @@ case 'tictactoe': {
         console.log('Logged out, remove auth_info and re-run SessionCode');  
       }  
     } else if (connection === 'open') {  
-      console.log('âœ…ï¸ Phoenix Connected');  
+      console.log('✅️ Phoenix Connected');  
       try {  
         const id = sock.user?.id;  
         if (id) await sock.sendMessage(id, { text: '*connected successfully*' });  
