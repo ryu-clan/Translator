@@ -162,7 +162,19 @@ async function Phoenix() {
         session.current = session.questions[session.total];
 
         const nextOptions = session.current.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
-        const q = `${feedback}\n\n🧠 *Question:*\n${session.current.question}\n\n🎯 *Options:*\n${nextOptions}\n\n❤️ *Lives:* ${session.lives}\n🏅 *Score:* ${session.score}\n📋 *Question:* ${session.total + 1}/${session.max}\n\n*💬 Reply with the correct number (1-4) or type the answer*`;
+        const q = `${feedback ? `💡 *Hint:* ${feedback}\n\n` : ''}  
+🎮 *Next Challenge Awaits!*  
+🧠 *Question:* ${session.current.question}  
+
+🎯 *Choices:*  
+${nextOptions}  
+
+${session.lives > 0 
+    ? `❤️ *Lives:* ${'❤'.repeat(session.lives)} (${session.lives} left)` 
+    : '💀 *No lives left — clutch time!*'}  
+🏆 *Score:* ${session.score} | 📋 *Round:* ${session.total + 1}/${session.max}  
+
+⚡ *Your Move:* Drop the right *number (1-4)* or type the *answer* like a boss.`;
 
         await msg.reply(q);
         return; // Return after processing quiz answer
