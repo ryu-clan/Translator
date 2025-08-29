@@ -1,3 +1,11 @@
+/*
+
+Ok bro in this you define every command you added 
+
+dont mess it up
+
+*/
+
 import { ping } from './ping.js';
 import { alive } from './alive.js';
 import { menu } from './menu.js';
