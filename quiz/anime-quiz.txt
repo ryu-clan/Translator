@@ -1,0 +1,1065 @@
+Question: What is the name of the main character in Naruto?
+Options: Naruto Uzumaki, Sasuke Uchiha, Kakashi Hatake, Sakura Haruno
+Answer: Naruto Uzumaki
+
+Question: In "Dragon Ball Z," what is Goku's original Saiyan name?
+Options: Vegeta, Broly, Kakarot, Raditz
+Answer: Kakarot
+
+Question: In "One Piece," what is the name of Monkey D. Luffy's signature attack?
+Options: Gum-Gum Pistol, Rasengan, Kamehameha, Spirit Gun
+Answer: Gum-Gum Pistol
+
+Question: In "Attack on Titan," which of the three walls is the outermost one?
+Options: Wall Rose, Wall Sina, Wall Maria, Wall Sheena
+Answer: Wall Maria
+
+Question: What is the name of the notebook used by Light Yagami in "Death Note"?
+Options: Soul Note, Life Note, Death Note, Shinigami's Journal
+Answer: Death Note
+
+Question: In "Fullmetal Alchemist: Brotherhood," what is the ultimate goal of the Elric brothers?
+Options: To become State Alchemists, To find the Philosopher's Stone, To defeat the Homunculi, To master alchemy
+Answer: To find the Philosopher's Stone
+
+Question: What is the name of Izuku Midoriya's Quirk in "My Hero Academia"?
+Options: Explosion, Half-Cold Half-Hot, All For One, One For All
+Answer: One For All
+
+Question: In "Demon Slayer," what is the name of Tanjiro Kamado's sister?
+Options: Kanao, Shinobu, Nezuko, Mitsuri
+Answer: Nezuko
+
+Question: Who is known as the "King of Curses" in "Jujutsu Kaisen"?
+Options: Satoru Gojo, Yuji Itadori, Suguru Geto, Ryomen Sukuna
+Answer: Ryomen Sukuna
+
+Question: In "Hunter x Hunter," what is Gon Freecss's primary Nen category?
+Options: Transmuter, Conjurer, Enhancer, Emitter
+Answer: Enhancer
+
+Question: What is the name of Ichigo Kurosaki's Zanpakuto in "Bleach"?
+Options: Senbonzakura, Zangetsu, Hyorinmaru, Sode no Shirayuki
+Answer: Zangetsu
+
+Question: What is Saitama's hero name in "One-Punch Man"?
+Options: Blast, Genos, Caped Baldy, Silver Fang
+Answer: Caped Baldy
+
+Question: In "Tokyo Ghoul," what is the name of the coffee shop where ghouls and humans interact?
+Options: Big Girl, Anteiku, :re, Goat
+Answer: Anteiku
+
+Question: What is the name of the virtual reality game in the first season of "Sword Art Online"?
+Options: ALfheim Online, Gun Gale Online, Underworld, Aincrad
+Answer: Aincrad
+
+Question: In "Steins;Gate," what is the name of the time machine created by Okabe Rintaro?
+Options: Phone Microwave, Time Leap Machine, D-Mail, SERN
+Answer: Phone Microwave
+
+Question: Who is the main protagonist of "Code Geass"?
+Options: Suzaku Kururugi, C.C., Lelouch vi Britannia, Kallen Stadtfeld
+Answer: Lelouch vi Britannia
+
+Question: In "Neon Genesis Evangelion," what are the giant bio-machines piloted by the children called?
+Options: Angels, Jaegers, Evangelions, Gundams
+Answer: Evangelions
+
+Question: What is the name of the bounty hunter and main character of "Cowboy Bebop"?
+Options: Jet Black, Spike Spiegel, Vicious, Ed
+Answer: Spike Spiegel
+
+Question: In "JoJo's Bizarre Adventure: Stardust Crusaders," what is the name of Jotaro Kujo's Stand?
+Options: The World, Star Platinum, Magician's Red, Hierophant Green
+Answer: Star Platinum
+
+Question: What is the codename of the telepathic daughter in "Spy x Family"?
+Options: Starlight Anya, Thorn Princess, Twilight, Anya Forger
+Answer: Anya Forger
+
+Question: In "Chainsaw Man," what kind of devil does Denji merge with?
+Options: Gun Devil, Fox Devil, Chainsaw Devil, Bat Devil
+Answer: Chainsaw Devil
+
+Question: In "Haikyuu!!," what is the nickname for the duo of Shoyo Hinata and Tobio Kageyama?
+Options: The Iron Wall, The King and his Pawn, The Freak Duo, The Crows
+Answer: The Freak Duo
+
+Question: What is the main character's primary goal in the first season of "Vinland Saga"?
+Options: To find Vinland, To become a great warrior, To avenge his father, To serve King Canute
+Answer: To avenge his father
+
+Question: Who is the Fourth Hokage of the Hidden Leaf Village in "Naruto"?
+Options: Hiruzen Sarutobi, Tobirama Senju, Hashirama Senju, Minato Namikaze
+Answer: Minato Namikaze
+
+Question: In "Dragon Ball Z," who is the prince of all Saiyans?
+Options: Goku, Gohan, Vegeta, Broly
+Answer: Vegeta
+
+Question: In "One Piece," who is the swordsman of the Straw Hat Pirates?
+Options: Sanji, Usopp, Roronoa Zoro, Franky
+Answer: Roronoa Zoro
+
+Question: Who is the commander of the Survey Corps in "Attack on Titan"?
+Options: Levi Ackerman, Hange Zoë, Erwin Smith, Dot Pixis
+Answer: Erwin Smith
+
+Question: In "Death Note," what is the name of the Shinigami who dropped the notebook into the human world?
+Options: Rem, Sidoh, Ryuk, Gelus
+Answer: Ryuk
+
+Question: What are the Homunculi named after in "Fullmetal Alchemist: Brotherhood"?
+Options: The Seven Virtues, The Twelve Apostles, The Seven Deadly Sins, The Greek Gods
+Answer: The Seven Deadly Sins
+
+Question: In "My Hero Academia," who is Izuku Midoriya's childhood friend and rival?
+Options: Shoto Todoroki, Katsuki Bakugo, Tenya Iida, Eijiro Kirishima
+Answer: Katsuki Bakugo
+
+Question: In "Demon Slayer," what is the name of the organization that Tanjiro joins?
+Options: The Hashira, The Twelve Kizuki, The Demon Slayer Corps, The Butterfly Mansion
+Answer: The Demon Slayer Corps
+
+Question: Who is the teacher of the main trio in "Jujutsu Kaisen"?
+Options: Kento Nanami, Satoru Gojo, Masamichi Yaga, Suguru Geto
+Answer: Satoru Gojo
+
+Question: In "Hunter x Hunter," what is Killua Zoldyck's family famous for?
+Options: Being Hunters, Being Nen masters, Being assassins, Being chefs
+Answer: Being assassins
+
+Question: Who is the captain of the 13th Division in "Bleach" at the start of the series?
+Options: Byakuya Kuchiki, Jushiro Ukitake, Shunsui Kyoraku, Kenpachi Zaraki
+Answer: Jushiro Ukitake
+
+Question: In "One-Punch Man," what is Genos's classification?
+Options: Esper, Martial Artist, Cyborg, Ninja
+Answer: Cyborg
+
+Question: What is the nickname of Ken Kaneki in "Tokyo Ghoul" after he accepts his ghoul side?
+Options: The Owl, The Gourmet, Eyepatch, The Binge Eater
+Answer: Eyepatch
+
+Question: What is the main character's real name in "Code Geass"?
+Options: Lelouch Lamperouge, Lelouch vi Britannia, Julius Kingsley, Zero
+Answer: Lelouch vi Britannia
+
+Question: In "Steins;Gate," what is the phrase Okabe Rintaro often says on the phone?
+Options: Tuturu!, It's the choice of Steins Gate, El Psy Kongroo, I am mad scientist
+Answer: El Psy Kongroo
+
+Question: What is the name of Spike Spiegel's spaceship in "Cowboy Bebop"?
+Options: Swordfish II, Red Tail, The Bebop, Hammerhead
+Answer: The Bebop
+
+Question: What is the name of the Joestar family's signature birthmark?
+Options: A star-shaped birthmark, A cross-shaped birthmark, A crescent moon birthmark, A dragon-shaped birthmark
+Answer: A star-shaped birthmark
+
+Question: In "Spy x Family," what is the name of the secret police organization that Yor's brother works for?
+Options: WISE, The Garden, State Security Service, Ostanian Intelligence
+Answer: State Security Service
+
+Question: In "Naruto Shippuden," who is the leader of the Akatsuki?
+Options: Itachi Uchiha, Pain, Tobi, Orochimaru
+Answer: Pain
+
+Question: What is the name of the technique used to fuse two people in "Dragon Ball"?
+Options: Potara Earrings, Metamoran Fusion Dance, Spirit Bomb, Kaio-ken
+Answer: Metamoran Fusion Dance
+
+Question: In "One Piece," what is Sanji's dream?
+Options: To become the King of the Pirates, To find the All Blue, To map the entire world, To become the greatest swordsman
+Answer: To find the All Blue
+
+Question: Who is the Armored Titan in "Attack on Titan"?
+Options: Eren Yeager, Bertholdt Hoover, Zeke Yeager, Reiner Braun
+Answer: Reiner Braun
+
+Question: What is L's real name in "Death Note"?
+Options: Mihael Keehl, Nate River, L Lawliet, Beyond Birthday
+Answer: L Lawliet
+
+Question: In "Fullmetal Alchemist: Brotherhood," what is Roy Mustang's nickname?
+Options: The Strong Arm Alchemist, The Iron Blood Alchemist, The Flame Alchemist, The Fullmetal Alchemist
+Answer: The Flame Alchemist
+
+Question: Who is the number one hero at the beginning of "My Hero Academia"?
+Options: Endeavor, Hawks, All Might, Best Jeanist
+Answer: All Might
+
+Question: In "Demon Slayer," who is the Insect Hashira?
+Options: Mitsuri Kanroji, Shinobu Kocho, Kanao Tsuyuri, Giyu Tomioka
+Answer: Shinobu Kocho
+
+Question: What is Megumi Fushiguro's cursed technique in "Jujutsu Kaisen"?
+Options: Cursed Speech, Straw Doll Technique, Ten Shadows Technique, Limitless
+Answer: Ten Shadows Technique
+
+Question: In "Hunter x Hunter," what weapon does Kurapika primarily use?
+Options: A sword, A fishing rod, Knives, Chains
+Answer: Chains
+
+Question: What is the name of Rukia Kuchiki's brother in "Bleach"?
+Options: Renji Abarai, Byakuya Kuchiki, Sosuke Aizen, Ichigo Kurosaki
+Answer: Byakuya Kuchiki
+
+Question: In "Mob Psycho 100," what is the name of Mob's mentor?
+Options: Teruki Hanazawa, Dimple, Arataka Reigen, Ritsu Kageyama
+Answer: Arataka Reigen
+
+Question: What is the name of the main antagonist in "Gintama"?
+Options: Takasugi Shinsuke, Kamui, Utsuro, Housen
+Answer: Utsuro
+
+Question: In "Haikyuu!!," what position does Tobio Kageyama play?
+Options: Libero, Middle Blocker, Setter, Wing Spiker
+Answer: Setter
+
+Question: In "Vinland Saga," who killed Thors?
+Options: Thorkell, Canute, Askeladd, Floki
+Answer: Askeladd
+
+Question: What is the name of the main female protagonist in "Your Lie in April"?
+Options: Tsubaki Sawabe, Kaori Miyazono, Emi Igawa, Nagi Aiza
+Answer: Kaori Miyazono
+
+Question: In "Anohana: The Flower We Saw That Day," what is the nickname of the main female character, Meiko Honma?
+Options: Anaru, Tsuruko, Poppo, Menma
+Answer: Menma
+
+Question: What city is the primary setting for "Durarara!!"?
+Options: Shinjuku, Shibuya, Ikebukuro, Akihabara
+Answer: Ikebukuro
+
+Question: In "Kill la Kill," what is the name of Ryuko Matoi's sentient sailor uniform?
+Options: Junketsu, Senketsu, Bakuzan, Mankanshoku
+Answer: Senketsu
+
+Question: What is the name of the guild the main characters belong to in "Fairy Tail"?
+Options: Sabertooth, Lamia Scale, Fairy Tail, Blue Pegasus
+Answer: Fairy Tail
+
+Question: In "Naruto," what is the name of Kakashi Hatake's signature technique?
+Options: Rasengan, Chidori, Shadow Clone Jutsu, Flying Raijin
+Answer: Chidori
+
+Question: In "Dragon Ball Super," who is the God of Destruction of Universe 7?
+Options: Whis, Zeno, Beerus, Champa
+Answer: Beerus
+
+Question: In "One Piece," what type of Devil Fruit did Luffy eat?
+Options: Logia, Zoan, Paramecia, Mythical Zoan
+Answer: Paramecia
+
+Question: In "Attack on Titan," what is Levi Ackerman's squad often called?
+Options: The Garrison, The Military Police, The Cadet Corps, The Special Operations Squad
+Answer: The Special Operations Squad
+
+Question: What rule must be followed for the Death Note to work?
+Options: You must know the person's age, You must know the person's face, You must know the person's blood type, You must know the person's full address
+Answer: You must know the person's face
+
+Question: In "Fullmetal Alchemist," what did Edward Elric lose in his attempt at human transmutation?
+Options: His right arm and right leg, His left arm and left leg, His right arm and left leg, His left arm and right leg
+Answer: His right arm and left leg
+
+Question: What is the name of the school in "My Hero Academia"?
+Options: Shiketsu High, U.A. High School, Ketsubutsu Academy, Seiai Academy
+Answer: U.A. High School
+
+Question: Who is the Hashira that uses Mist Breathing in "Demon Slayer"?
+Options: Sanemi Shinazugawa, Muichiro Tokito, Obanai Iguro, Gyomei Himejima
+Answer: Muichiro Tokito
+
+Question: What rank of sorcerer is Yuji Itadori at the start of "Jujutsu Kaisen"?
+Options: Grade 1, Special Grade, Grade 4, No Grade
+Answer: No Grade
+
+Question: In "Hunter x Hunter," who is the leader of the Phantom Troupe?
+Options: Feitan, Hisoka, Chrollo Lucilfer, Illumi
+Answer: Chrollo Lucilfer
+
+Question: In "Bleach," what is the term for the "hollowfied" state of a Soul Reaper?
+Options: Arrancar, Vasto Lorde, Vizard, Espada
+Answer: Vizard
+
+Question: In "One-Punch Man," what is the source of Saitama's power?
+Options: A gift from God, A scientific experiment, Intense physical training, He was born with it
+Answer: Intense physical training
+
+Question: Who is the main character of "Psycho-Pass"?
+Options: Shogo Makishima, Nobuchika Ginoza, Shinya Kogami, Akane Tsunemori
+Answer: Akane Tsunemori
+
+Question: In "Sword Art Online," what is Kirito's unique skill?
+Options: Holy Sword, Dual Blades, Battle Healing, Infinite Spears
+Answer: Dual Blades
+
+Question: In "Code Geass," what is the power that Lelouch obtains?
+Options: Telekinesis, Telepathy, Geass, Code
+Answer: Geass
+
+Question: In "Neon Genesis Evangelion," who is the First Child and pilot of Evangelion Unit-00?
+Options: Asuka Langley Soryu, Shinji Ikari, Rei Ayanami, Kaworu Nagisa
+Answer: Rei Ayanami
+
+Question: In "JoJo's Bizarre Adventure," what is the name of the breathing technique used to fight vampires?
+Options: Spin, Stand, Ripple (Hamon), Nen
+Answer: Ripple (Hamon)
+
+Question: What job does the mother, Yor Forger, have in "Spy x Family"?
+Options: Doctor, Clerk, Assassin, Teacher
+Answer: Assassin
+
+Question: What is the name of the main female character in "Chainsaw Man" who is a Fiend?
+Options: Makima, Himeno, Kobeni, Power
+Answer: Power
+
+Question: In "Haikyuu!!," what school is known as "The Iron Wall"?
+Options: Aoba Johsai, Karasuno, Nekoma, Date Tech
+Answer: Date Tech
+
+Question: In "Naruto," who are the three legendary Sannin?
+Options: Jiraiya, Tsunade, Orochimaru, Kakashi, Minato, Hiruzen, Danzo, Homura, Koharu, Jiraiya, Tsunade, Sakumo
+Answer: Jiraiya, Tsunade, Orochimaru
+
+Question: Who is the first major villain in "Dragon Ball Z"?
+Options: Frieza, Cell, Raditz, Majin Buu
+Answer: Raditz
+
+Question: In "One Piece," what is Gol D. Roger's title?
+Options: The Strongest Creature, The King of the Pirates, The World's Greatest Swordsman, Whitebeard
+Answer: The King of the Pirates
+
+Question: The story of "Attack on Titan" is set on what island?
+Options: Marley, Eldia, Paradis, Hizuru
+Answer: Paradis
+
+Question: What is Misa Amane's Shinigami's name in "Death Note"?
+Options: Ryuk, Sidoh, Gelus, Rem
+Answer: Rem
+
+Question: In "Fullmetal Alchemist," what is a state alchemist's silver pocket watch used for?
+Options: To tell time, To amplify their alchemy, As proof of their status, To communicate with the military
+Answer: To amplify their alchemy
+
+Question: In "My Hero Academia," what is Shoto Todoroki's Quirk?
+Options: Explosion, Creation, Engine, Half-Cold Half-Hot
+Answer: Half-Cold Half-Hot
+
+Question: Who is the creator of the Breathing Styles in "Demon Slayer"?
+Options: Muzan Kibutsuji, Yoriichi Tsugikuni, Kokushibo, Tanjiro Kamado
+Answer: Yoriichi Tsugikuni
+
+Question: In "Jujutsu Kaisen," what is Panda?
+Options: A cursed spirit, A cursed corpse, A shikigami, A transfigured human
+Answer: A cursed corpse
+
+Question: In "Hunter x Hunter," what is the name of the exam to become a professional Hunter?
+Options: The Hunter Test, The Hunter Examination, The Nen Trial, The Celestial Tower
+Answer: The Hunter Examination
+
+Question: In "Bleach," what is the name of the world where Soul Reapers live?
+Options: Hueco Mundo, The Human World, Soul Society, The Dangai
+Answer: Soul Society
+
+Question: In "Tokyo Ghoul," what does the acronym CCG stand for?
+Options: Commission of Counter Ghoul, Central Control of Ghouls, Committee of Ghoul Catchers, Corporation for Controlling Ghouls
+Answer: Commission of Counter Ghoul
+
+Question: In "Steins;Gate," who is Suzuha Amane's father?
+Options: Okabe Rintaro, Itaru "Daru" Hashida, Kurisu Makise, Yugo "Mr. Braun" Tennouji
+Answer: Itaru "Daru" Hashida
+
+Question: In "Code Geass," what country does Lelouch lead a rebellion against?
+Options: The Chinese Federation, The Holy Britannian Empire, The Europia United, Japan
+Answer: The Holy Britannian Empire
+
+Question: In "Cowboy Bebop," what is the name of the data dog?
+Options: Charlie, Ein, Max, Rush
+Answer: Ein
+
+Question: In "JoJo's Bizarre Adventure: Phantom Blood," who is the main antagonist?
+Options: Kars, Yoshikage Kira, Diavolo, Dio Brando
+Answer: Dio Brando
+
+Question: What is the name of the family dog in "Spy x Family"?
+Options: Max, Bolt, Bond, Lucky
+Answer: Bond
+
+Question: In "Chainsaw Man," who is the captain of the special squad Denji joins?
+Options: Aki Hayakawa, Kishibe, Makima, Himeno
+Answer: Makima
+
+Question: Who is the "Ace" of the Karasuno High volleyball team in "Haikyuu!!"?
+Options: Daichi Sawamura, Asahi Azumane, Ryunosuke Tanaka, Yu Nishinoya
+Answer: Asahi Azumane
+
+Question: In "Vinland Saga," what is the name of the elite group of Danish warriors that Thorfinn joins?
+Options: Jomsvikings, Varangian Guard, Housecarls, Berserkers
+Answer: Jomsvikings
+
+Question: In "Naruto," what is the village hidden in the sand called?
+Options: Konohagakure, Kirigakure, Sunagakure, Kumogakure
+Answer: Sunagakure
+
+Question: What is the name of the planet where Goku fights Frieza for the first time in "Dragon Ball Z"?
+Options: Earth, Vegeta, Namek, Yardrat
+Answer: Namek
+
+Question: In "One Piece," what is the name of the World Government's ultimate military force?
+Options: The Shichibukai, The Four Emperors, The Marines, The Cipher Pol
+Answer: The Marines
+
+Question: Who is the Beast Titan in "Attack on Titan"?
+Options: Grisha Yeager, Eren Kruger, Zeke Yeager, Tom Ksaver
+Answer: Zeke Yeager
+
+Question: In "Death Note," who is the second person to act as "L"?
+Options: Mello, Matt, Light Yagami, Near
+Answer: Near
+
+Question: In "Fullmetal Alchemist," what is Alphonse Elric's body for most of the series?
+Options: A puppet, A suit of armor, A chimera, A homunculus
+Answer: A suit of armor
+
+Question: What is the name of the villain organization in "My Hero Academia"?
+Options: The Meta Liberation Army, The Shie Hassaikai, The League of Villains, The Hero Public Safety Commission
+Answer: The League of Villains
+
+Question: What is the highest rank in the Demon Slayer Corps?
+Options: Kinoe, Tsuchinoto, Hashira, Mizunoto
+Answer: Hashira
+
+Question: Who is the antagonist in the "Jujutsu Kaisen 0" movie?
+Options: Mahito, Jogo, Suguru Geto, Toji Fushiguro
+Answer: Suguru Geto
+
+Question: In "Hunter x Hunter," what is the name of Hisoka's Nen ability?
+Options: Skill Hunter, Bungee Gum, Jajanken, Dragon Head
+Answer: Bungee Gum
+
+Question: In "Bleach," who is the main antagonist of the Soul Society arc?
+Options: Grimmjow Jaegerjaquez, Ulquiorra Cifer, Sosuke Aizen, Yhwach
+Answer: Sosuke Aizen
+
+Question: In "One-Punch Man," what is the name of the hero organization?
+Options: The Hero Association, The Justice League, The Hero Society, The Public Safety Commission
+Answer: The Hero Association
+
+Question: In "Tokyo Ghoul," what is a ghoul's predatory organ called?
+Options: Quinque, Kagune, Kakuja, Kakuhou
+Answer: Kagune
+
+Question: In "Sword Art Online," what is Asuna's nickname?
+Options: The Black Swordsman, The Beater, The Flash, The Healer
+Answer: The Flash
+
+Question: In "Steins;Gate," what organization is pursuing the time machine?
+Options: The Committee of 300, Stratfor, DURPA, SERN
+Answer: SERN
+
+Question: In "Evangelion," what is the NERV's ultimate goal?
+Options: To defeat all Angels, To initiate the Third Impact, To achieve Human Instrumentality, To create new life
+Answer: To achieve Human Instrumentality
+
+Question: In "Cowboy Bebop," what is Faye Valentine's signature spacecraft?
+Options: The Hammerhead, Red Tail, The Bebop, Swordfish II
+Answer: Red Tail
+
+Question: In "JoJo's Bizarre Adventure: Battle Tendency," who is the main protagonist?
+Options: Jonathan Joestar, Joseph Joestar, Jotaro Kujo, Josuke Higashikata
+Answer: Joseph Joestar
+
+Question: What is the name of the school Anya attends in "Spy x Family"?
+Options: Westalian Academy, Ostania University, Eden Academy, Berlint High
+Answer: Eden Academy
+
+Question: In "Naruto," which Tailed Beast is sealed inside Gaara?
+Options: Nine-Tails (Kurama), Eight-Tails (Gyuki), One-Tail (Shukaku), Two-Tails (Matatabi)
+Answer: One-Tail (Shukaku)
+
+Question: In "Dragon Ball Z," who ultimately defeats Kid Buu?
+Options: Vegeta, Gohan, Gotenks, Goku
+Answer: Goku
+
+Question: In "One Piece," who gave Shanks the scar over his eye?
+Options: Dracule Mihawk, Gol D. Roger, Monkey D. Garp, Marshall D. Teach
+Answer: Marshall D. Teach
+
+Question: Who is the Female Titan in "Attack on Titan"?
+Options: Ymir, Historia Reiss, Annie Leonhart, Pieck Finger
+Answer: Annie Leonhart
+
+Question: What is the real name of the main character in "Mob Psycho 100"?
+Options: Arataka Reigen, Teruki Hanazawa, Ritsu Kageyama, Shigeo Kageyama
+Answer: Shigeo Kageyama
+
+Question: What is the name of the white-haired samurai protagonist in "Gintama"?
+Options: Hijikata Toshiro, Sakata Gintoki, Katsura Kotarou, Okita Sougo
+Answer: Sakata Gintoki
+
+Question: In "My Hero Academia," who is the mentor of All Might?
+Options: Gran Torino, Sir Nighteye, Nana Shimura, David Shield
+Answer: Nana Shimura
+
+Question: In "Demon Slayer," what is Zenitsu Agatsuma's primary breathing form?
+Options: First Form, Second Form, Third Form, Fourth Form
+Answer: First Form
+
+Question: In "Jujutsu Kaisen," what is Satoru Gojo's Cursed Technique called?
+Options: Limitless, Six Eyes, Cursed Speech, Ten Shadows
+Answer: Limitless
+
+Question: In "Hunter x Hunter," what type of animal is Gon's father, Ging?
+Options: Boar, Dragon, Dog, He is human
+Answer: He is human
+
+Question: In "Death Note," how many days can the owner of a Death Note live if they make the eye deal with a Shinigami?
+Options: Half their remaining lifespan, Exactly 13 days, They become immortal, A quarter of their remaining lifespan
+Answer: Half their remaining lifespan
+
+Question: In "Bleach," what is the name of the hollows that have gained Soul Reaper-like powers?
+Options: Menos Grande, Adjuchas, Arrancar, Vasto Lorde
+Answer: Arrancar
+
+Question: Who is the "Mad Cyborg" that Genos is searching for in "One-Punch Man"?
+Options: Metal Knight, Drive Knight, The Monster King Orochi, The cyborg is a mystery
+Answer: The cyborg is a mystery
+
+Question: In "Fullmetal Alchemist," what is the name of the country the story is set in?
+Options: Xing, Drachma, Amestris, Creta
+Answer: Amestris
+
+Question: In "Code Geass," what is Lelouch's public identity as the leader of the Black Knights?
+Options: The Knight of Seven, The Black King, Zero, The Masked Man
+Answer: Zero
+
+Question: What instrument does Kaori play in "Your Lie in April"?
+Options: Piano, Cello, Violin, Flute
+Answer: Violin
+
+Question: In "Fairy Tail," what type of magic does Natsu Dragneel use?
+Options: Ice-Make Magic, Fire Dragon Slayer Magic, Sky God Slayer Magic, Celestial Spirit Magic
+Answer: Fire Dragon Slayer Magic
+
+Question: In "Attack on Titan," what is the name of Eren's hometown district?
+Options: Trost, Karanes, Shiganshina, Krolva
+Answer: Shiganshina
+
+Question: In "JoJo's Bizarre Adventure: Golden Wind," who is the protagonist?
+Options: Jotaro Kujo, Josuke Higashikata, Giorno Giovanna, Jolyne Cujoh
+Answer: Giorno Giovanna
+
+Question: In "Naruto," what clan possesses the Sharingan?
+Options: Hyuga Clan, Senju Clan, Uzumaki Clan, Uchiha Clan
+Answer: Uchiha Clan
+
+Question: In "Dragon Ball," what is the name of the eternal dragon summoned by the Earth's Dragon Balls?
+Options: Porunga, Shenron, Super Shenron, Zalama
+Answer: Shenron
+
+Question: In "One Piece," where is the final island, Laugh Tale, located?
+Options: At the end of the Grand Line, In the New World, In the East Blue, Atop the Red Line
+Answer: At the end of the Grand Line
+
+Question: What is the main ingredient of the pills Rize Kamishiro uses in "Re:ZERO"?
+Options: Dragon's Blood, Witch's Miasma, Spirit Arts Crystals, Ground-up Metia
+Answer: Dragon's Blood
+
+Question: What is the name of the virtual world in "No Game No Life"?
+Options: Aincrad, Disboard, The World, ALfheim
+Answer: Disboard
+
+Question: In "Erased," what is the main character Satoru's ability called?
+Options: Time Leap, Revival, Backtrack, Flashback
+Answer: Revival
+
+Question: In "Toradora!," what is Taiga Aisaka's nickname?
+Options: The Tiny Tiger, The Palmtop Tiger, The Feisty Tiger, The Pocket Tiger
+Answer: The Palmtop Tiger
+
+Question: What is the name of the cat-like creature that grants wishes in "Puella Magi Madoka Magica"?
+Options: Mokona, Kero, Kyubey, Luna
+Answer: Kyubey
+
+Question: In "The Promised Neverland," what is the name of the orphanage the children live in?
+Options: Grace Field House, Glory Bell, Grand Valley, Lambda 7214
+Answer: Grace Field House
+
+Question: What is the name of the titular character in "Mushishi"?
+Options: Adashino, Tanyuu, Ginko, Isaza
+Answer: Ginko
+
+Question: In "Parasyte: The Maxim," what is the name of Shinichi Izumi's parasyte?
+Options: Lefty, Migi, Para, Syte
+Answer: Migi
+
+Question: What is the name of the high school band in "K-On!"?
+Options: After School Tea Time, Light Music Club, The Peggies, Scandal
+Answer: After School Tea Time
+
+Question: In "Clannad," what is the name of the play that Nagisa wants to perform?
+Options: The Girl in the Illusionary World, The Dango Daikazoku, The Cat and the Girl, The Dragon's Tale
+Answer: The Girl in the Illusionary World
+
+Question: What is the primary sport featured in "Yuri!!! on Ice"?
+Options: Swimming, Volleyball, Figure Skating, Basketball
+Answer: Figure Skating
+
+Question: In "Made in Abyss," what is the name of the giant, mysterious chasm?
+Options: The Chasm, The Netherworld, The Great Hole, The Abyss
+Answer: The Abyss
+
+Question: What is the name of the main character in "Konosuba"?
+Options: Satou Kazuma, Subaru Natsuki, Naofumi Iwatani, Ainz Ooal Gown
+Answer: Satou Kazuma
+
+Question: In "The Melancholy of Haruhi Suzumiya," what is the name of the club Haruhi creates?
+Options: The SOS Brigade, The Literature Club, The Mystery Club, The Supernatural Club
+Answer: The SOS Brigade
+
+Question: In "Gurren Lagann," what is the name of the main protagonist?
+Options: Kamina, Simon, Kittan, Viral
+Answer: Simon
+
+Question: In "Samurai Champloo," who is the "samurai who smells of sunflowers"?
+Options: Mugen, Jin, Fuu's father, A mysterious swordsman
+Answer: A mysterious swordsman
+
+Question: In "Hellsing Ultimate," what is the name of the organization Alucard works for?
+Options: The Iscariot Organization, The Millennium Organization, The Hellsing Organization, The Vampire Council
+Answer: The Hellsing Organization
+
+Question: What is the name of the currency used in the world of "Cowboy Bebop"?
+Options: Credits, Zeni, Woolong, Gil
+Answer: Woolong
+
+Question: In "Trigun," what is Vash the Stampede's nickname?
+Options: The Angel of Death, The Humanoid Typhoon, The Crimson Gunman, The Desert Wanderer
+Answer: The Humanoid Typhoon
+
+Question: In "Berserk," what is the name of Guts' large sword?
+Options: The Dragonslayer, The Executioner's Blade, The Greatsword, Rebellion
+Answer: The Dragonslayer
+
+Question: What is the name of the academy in "Little Witch Academia"?
+Options: Hogwarts, Luna Nova Magical Academy, Royal Magic Academy, The Witch's Institute
+Answer: Luna Nova Magical Academy
+
+Question: In "Devilman Crybaby," what is the name of the main character who merges with a demon?
+Options: Ryo Asuka, Miki Makimura, Akira Fudo, Koji Nagasaki
+Answer: Akira Fudo
+
+Question: In "The Disastrous Life of Saiki K.," what is Saiki's primary goal?
+Options: To become popular, To live a normal, peaceful life, To take over the world, To help his friends
+Answer: To live a normal, peaceful life
+
+Question: What food does C.C. obsessively eat in "Code Geass"?
+Options: Ramen, Burgers, Pizza, Sushi
+Answer: Pizza
+
+Question: In "Fullmetal Alchemist," what is the name of Winry Rockbell's specialty?
+Options: Alchemy, Combat, Automail mechanics, Medicine
+Answer: Automail mechanics
+
+Question: In "Demon Slayer," what color is the standard Demon Slayer uniform?
+Options: Black, White, Blue, Green
+Answer: Black
+
+Question: In "Jujutsu Kaisen," what is Nobara Kugisaki's weapon of choice?
+Options: A sword, A hammer and nails, A spear, A gun
+Answer: A hammer and nails
+
+Question: In "My Hero Academia," what is the name of the school's principal?
+Options: Shota Aizawa, All Might, Recovery Girl, Nezu
+Answer: Nezu
+
+Question: In "One Piece," what is the name of the shipwright for the Straw Hat Pirates?
+Options: Franky, Usopp, Brook, Jinbe
+Answer: Franky
+
+Question: In "Naruto," what is the name of the toad that Jiraiya often summons?
+Options: Gamabunta, Gamakichi, Gamatatsu, Shima
+Answer: Gamabunta
+
+Question: In "Dragon Ball Z," what is the name of Gohan's wife?
+Options: Bulma, Chi-Chi, Videl, Android 18
+Answer: Videl
+
+Question: In "Attack on Titan," what substance is used to power the ODM gear?
+Options: Coal, Pressurized Gas, Gunpowder, Electricity
+Answer: Pressurized Gas
+
+Question: In "Hunter x Hunter," who is Gon's best friend?
+Options: Kurapika, Leorio, Hisoka, Killua
+Answer: Killua
+
+Question: In "Naruto," what is the name of Naruto's mother?
+Options: Mikoto Uchiha, Kushina Uzumaki, Tsunade Senju, Kurenai Yuhi
+Answer: Kushina Uzumaki
+
+Question: In "Death Note," what is the name of L's successor who loves chocolate?
+Options: Near, Mello, Matt, Roger
+Answer: Mello
+
+Question: In "One Piece," what is the name of the shipwright who built the Oro Jackson, Gol D. Roger's ship?
+Options: Franky, Iceburg, Tom, Spandam
+Answer: Tom
+
+Question: In "My Hero Academia," what is All Might's real name?
+Options: Enji Todoroki, Toshinori Yagi, Shota Aizawa, Hizashi Yamada
+Answer: Toshinori Yagi
+
+Question: In "Dragon Ball Z," what is the name of the technique that allows instantaneous travel?
+Options: Kaio-ken, Solar Flare, Instant Transmission, Spirit Bomb
+Answer: Instant Transmission
+
+Question: In "Attack on Titan," what is the name of the substance that Titan shifters need to inject to transform?
+Options: Spinal Fluid, Titan Serum, Potion, Elixir
+Answer: Titan Serum
+
+Question: In "Jujutsu Kaisen," what is the name of Maki Zenin's twin sister?
+Options: Kasumi Miwa, Mai Zenin, Momo Nishimiya, Nobara Kugisaki
+Answer: Mai Zenin
+
+Question: In "Demon Slayer," who is the Hashira that uses Sound Breathing?
+Options: Gyomei Himejima, Sanemi Shinazugawa, Tengen Uzui, Obanai Iguro
+Answer: Tengen Uzui
+
+Question: In "Fullmetal Alchemist: Brotherhood," what is the name of the Ishvalan survivor who seeks revenge on State Alchemists?
+Options: Scar, Basque Grand, Ling Yao, Miles
+Answer: Scar
+
+Question: In "Hunter x Hunter," what is the name of the card-based game set in the virtual world?
+Options: Hunter Island, Greed Island, Nen Island, Yorknew Island
+Answer: Greed Island
+
+Question: In "Bleach," who is the Captain of the 6th Division of the Gotei 13?
+Options: Gin Ichimaru, Byakuya Kuchiki, Toshiro Hitsugaya, Sajin Komamura
+Answer: Byakuya Kuchiki
+
+Question: In "One-Punch Man," what is the name of the S-Class Rank 1 hero?
+Options: Tatsumaki, King, Blast, Silver Fang
+Answer: Blast
+
+Question: In "Black Clover," what kind of magic does Yuno use?
+Options: Anti-Magic, Fire Magic, Water Magic, Wind Magic
+Answer: Wind Magic
+
+Question: In "Dr. Stone," what is Senku Ishigami's main goal?
+Options: To conquer the world, To rebuild civilization with science, To find a cure for petrification, To live a simple life
+Answer: To rebuild civilization with science
+
+Question: In "Sailor Moon," what is the real name of Tuxedo Mask?
+Options: Motoki Furuhata, Mamoru Chiba, Umino Gurio, Jadeite
+Answer: Mamoru Chiba
+
+Question: In "Yu Yu Hakusho," who is Yusuke Urameshi's primary rival?
+Options: Hiei, Kurama, Kazuma Kuwabara, Genkai
+Answer: Kazuma Kuwabara
+
+Question: In "Inuyasha," what is the name of the powerful jewel that is the focus of the series?
+Options: The Sacred Jewel, The Jewel of Four Souls, The Demon Jewel, The Priestess's Jewel
+Answer: The Jewel of Four Souls
+
+Question: In "Fire Force," what is Shinra Kusakabe's nickname?
+Options: Knight King, Devil's Footprints, The Hero, Joker
+Answer: Devil's Footprints
+
+Question: In "That Time I Got Reincarnated as a Slime," what is the name of the protagonist's slime form?
+Options: Veldora, Rimuru Tempest, Shizu, Benimaru
+Answer: Rimuru Tempest
+
+Question: In "Vinland Saga," what country is the protagonist Thorfinn from?
+Options: Denmark, Norway, England, Iceland
+Answer: Iceland
+
+Question: In "Naruto," what is another name for the First Hokage, Hashirama Senju?
+Options: The Professor, The God of Shinobi, The Yellow Flash, The Ghost of the Uchiha
+Answer: The God of Shinobi
+
+Question: In "Jojo's Bizarre Adventure," what is the name of Joseph Joestar's signature finishing move?
+Options: Hermit Purple, Zoom Punch, Clacker Volley, Sunlight Yellow Overdrive
+Answer: Clacker Volley
+
+Question: In "Spy x Family," what is the name of the organization Loid Forger works for?
+Options: WISE, The Garden, SSS, Ostanian Intelligence
+Answer: WISE
+
+Question: In "Code Geass," what is the name of Lelouch's younger sister?
+Options: Euphemia, Cornelia, Nunnally, C.C.
+Answer: Nunnally
+
+Question: In "Steins;Gate," who is the creator of the Future Gadget Lab?
+Options: Itaru Hashida, Kurisu Makise, Rintaro Okabe, Mayuri Shiina
+Answer: Rintaro Okabe
+
+Question: In "Sword Art Online," what is the name of the guild led by Asuna?
+Options: Laughing Coffin, Knights of the Blood Oath, Divine Dragons Alliance, Fuurinkazan
+Answer: Knights of the Blood Oath
+
+Question: In "Violet Evergarden," what was Violet's role in the war?
+Options: Nurse, Spy, Soldier, Messenger
+Answer: Soldier
+
+Question: In "Cowboy Bebop," what is Jet Black's former profession?
+Options: Bounty Hunter, ISSP Police Officer, Gang Member, Musician
+Answer: ISSP Police Officer
+
+Question: In "One Piece," what is the name of Dracule Mihawk's sword?
+Options: Wado Ichimonji, Shusui, Yoru, Sandai Kitetsu
+Answer: Yoru
+
+Question: In "Dragon Ball Super," who is the angel attendant of Beerus?
+Options: Vados, Whis, The Grand Priest, Korn
+Answer: Whis
+
+Question: In "Attack on Titan," which branch of the military is responsible for patrolling and protecting the Walls?
+Options: The Survey Corps, The Military Police Brigade, The Garrison Regiment, The Cadet Corps
+Answer: The Garrison Regiment
+
+Question: In "My Hero Academia," which hero has the Quirk "Fibermaster"?
+Options: Mirko, Edgeshot, Best Jeanist, Hawks
+Answer: Best Jeanist
+
+Question: In "Demon Slayer," what is the family name of the Flame Hashira, Kyojuro?
+Options: Uzui, Shinazugawa, Tomioka, Rengoku
+Answer: Rengoku
+
+Question: In "Jujutsu Kaisen," which finger does Yuji Itadori consume first?
+Options: Sukuna's Right Index Finger, Sukuna's Left Index Finger, Sukuna's Right Thumb, Sukuna's Left Pinky
+Answer: Sukuna's Right Index Finger
+
+Question: In "Hunter x Hunter," what is the name of the musical test in the Hunter Exam?
+Options: The Trick Tower, The Zevil Island Phase, The Cooking Test, The Music Box Test
+Answer: The Music Box Test
+
+Question: In "Bleach," what is the name of the final form of Ichigo's Bankai?
+Options: Tensa Zangetsu, Mugetsu, Getsuga Tensho, Zangetsu
+Answer: Tensa Zangetsu
+
+Question: In "Fullmetal Alchemist," what is the name of the Führer of Amestris?
+Options: King Bradley, Roy Mustang, Grumman, Olivier Armstrong
+Answer: King Bradley
+
+Question: In "Death Note," who is the original owner of the notebook that Light finds?
+Options: Rem, Ryuk, Sidoh, Gelus
+Answer: Sidoh
+
+Question: In "Pokémon," who is Ash Ketchum's main rival from Pallet Town?
+Options: Ritchie, Paul, Gary Oak, Trip
+Answer: Gary Oak
+
+Question: In "Digimon Adventure," what is the Crest of the main character, Tai Kamiya?
+Options: Friendship, Knowledge, Courage, Love
+Answer: Courage
+
+Question: In "Fruits Basket," what animal does Kyo Soma transform into?
+Options: Rat, Dog, Cat, Dragon
+Answer: Cat
+
+Question: In "Detective Conan," what is Shinichi Kudo's alias as a child?
+Options: Heiji Hattori, Kaito Kid, Conan Edogawa, Kogoro Mouri
+Answer: Conan Edogawa
+
+Question: In "Overlord," what is the name of the guild Ainz Ooal Gown was the master of?
+Options: Seraphim, Trinity, Ainz Ooal Gown, The Black Scripture
+Answer: Ainz Ooal Gown
+
+Question: In "Re:Zero," what is the name of the ability that allows Subaru to return to a point in the past upon dying?
+Options: Return by Death, Checkpoint, Reversal, Time Leap
+Answer: Return by Death
+
+Question: In "Gintama," what is the name of the alien race that invaded Earth?
+Options: Yato, Amanto, Shinra, Dakini
+Answer: Amanto
+
+Question: In "Haikyuu!!," what is the nickname of the Karasuno High School volleyball team?
+Options: The Flightless Crows, The Iron Wall, The Cats, The Eagles
+Answer: The Flightless Crows
+
+Question: In "Chainsaw Man," what does the Fox Devil require as payment to be summoned by Aki?
+Options: A piece of hair, A drop of blood, A piece of skin, A fingernail
+Answer: A piece of skin
+
+Question: In "Neon Genesis Evangelion," what is the official name of the event that caused worldwide catastrophe 15 years before the series?
+Options: First Impact, Second Impact, Third Impact, The Cataclysm
+Answer: Second Impact
+
+Question: In "Naruto Shippuden," who was the first of the Akatsuki to be defeated by Naruto?
+Options: Sasori, Deidara, Hidan, Kakuzu
+Answer: Kakuzu
+
+Question: In "One Piece," what is the name of the all-female pirate crew led by Boa Hancock?
+Options: The Sun Pirates, The Rumbar Pirates, The Kuja Pirates, The Big Mom Pirates
+Answer: The Kuja Pirates
+
+Question: In "Dragon Ball Z," who teaches Goku the Kaio-ken and Spirit Bomb techniques?
+Options: Master Roshi, King Kai, Kami, Piccolo
+Answer: King Kai
+
+Question: In "Attack on Titan," what is the name of Historia Reiss's true family?
+Options: The Ackerman Family, The Fritz Family, The Reiss Family, The Tybur Family
+Answer: The Fritz Family
+
+Question: In "My Hero Academia," what is the name of the U.A. sports festival's final event?
+Options: The Cavalry Battle, The Obstacle Race, The One-on-One Tournament, The Scavenger Hunt
+Answer: The One-on-One Tournament
+
+Question: In "Demon Slayer," what is Muzan Kibutsuji's primary goal?
+Options: To conquer the world, To become the ultimate demon, To achieve immortality by conquering the sun, To destroy the Demon Slayer Corps
+Answer: To achieve immortality by conquering the sun
+
+Question: In "Jujutsu Kaisen," who is the "Cursed Womb: Death Painting" that allies with Yuji's group?
+Options: Eso, Kechizu, Choso, Noritoshi Kamo
+Answer: Choso
+
+Question: In "Hunter x Hunter," who is the oldest member of the Zoldyck family?
+Options: Zeno, Silva, Maha, Killua
+Answer: Maha
+
+Question: In "Bleach," which Espada holds the rank of #1 (Primera)?
+Options: Baraggan Louisenbairn, Coyote Starrk, Tier Harribel, Ulquiorra Cifer
+Answer: Coyote Starrk
+
+Question: In "Fullmetal Alchemist," what is the name of the dog that was fused into a chimera with Nina Tucker?
+Options: Black Hayate, Alexander, Den, Hanako
+Answer: Alexander
+
+Question: In "Death Note," what is the "shinigami eye" deal?
+Options: Gain the eyes to see names and lifespans for half your life, Gain the eyes to kill with a look, Gain the eyes to control people, Gain the eyes to see the future
+Answer: Gain the eyes to see names and lifespans for half your life
+
+Question: In "Black Clover," who is the captain of the Black Bulls?
+Options: William Vangeance, Fuegoleon Vermillion, Nozel Silva, Yami Sukehiro
+Answer: Yami Sukehiro
+
+Question: In "Dr. Stone," what is the name of the village Senku establishes?
+Options: Stone Village, Science Village, Ishigami Village, Kingdom of Science
+Answer: Ishigami Village
+
+Question: In "Sailor Moon," what is Sailor Jupiter's real name?
+Options: Ami Mizuno, Rei Hino, Makoto Kino, Minako Aino
+Answer: Makoto Kino
+
+Question: In "Yu Yu Hakusho," what is the name of the tournament that the main characters participate in during the second major arc?
+Options: The Demon World Tournament, The Dark Tournament, The Genkai Tournament, The Spirit Detective Tournament
+Answer: The Dark Tournament
+
+Question: In "Inuyasha," who is Sesshomaru's loyal demon servant?
+Options: Myoga, Jaken, Shippo, Kohaku
+Answer: Jaken
+
+Question: In "Fire Force," what generation of pyrokinetic is Shinra?
+Options: First Generation, Second Generation, Third Generation, Fourth Generation
+Answer: Third Generation
+
+Question: In "That Time I Got Reincarnated as a Slime," what is the name of the storm dragon Rimuru befriends and names?
+Options: Ifrit, Veldora, Charybdis, Diablo
+Answer: Veldora
+
+Question: In "Vinland Saga," who is the king of the Danes during the main part of the first season?
+Options: Canute, Sweyn Forkbeard, Harald Bluetooth, Gorm the Old
+Answer: Sweyn Forkbeard
+
+Question: In "Jojo's Bizarre Adventure: Diamond is Unbreakable," what is the name of the main antagonist?
+Options: Dio Brando, Kars, Diavolo, Yoshikage Kira
+Answer: Yoshikage Kira
+
+Question: In "Spy x Family," what is the name of the prestigious school Anya is trying to get into?
+Options: Westalis Academy, Ostania University, Berlint High School, Eden Academy
+Answer: Eden Academy
+
+Question: In "Code Geass," what is the name of the mobile armored knight used in battle?
+Options: Gundam, Evangelion, Knightmare Frame, Jaeger
+Answer: Knightmare Frame
+
+Question: In "Steins;Gate," what is the nickname Mayuri gives to herself?
+Options: Mayushii, Mayu-chan, Mayu-rin, Mayu-tan
+Answer: Mayushii
+
+Question: In "Sword Art Online," what does "Beater" mean?
+Options: A player who beats the game, A beta tester and a cheater, A powerful monster, A type of sword skill
+Answer: A beta tester and a cheter
+
+Question: In "Violet Evergarden," what is the name of the company Violet works for?
+Options: Leiden Postal Service, CH Postal Company, The Memory Company, Evergarden Letters
+Answer: CH Postal Company
+
+Question: In "Cowboy Bebop," what type of martial art does Spike Spiegel practice?
+Options: Karate, Kung Fu, Jeet Kune Do, Taekwondo
+Answer: Jeet Kune Do
+
+Question: In "One Piece," what is the name of the ancient language inscribed on the Poneglyphs?
+Options: The Ancient Script, The Will of D, The Old Tongue, The Language of the Void
+Answer: The Ancient Script
+
+Question: In "Dragon Ball Z," who is Cooler in relation to Frieza?
+Options: His father, His brother, His son, His cousin
+Answer: His brother
+
+Question: In "Attack on Titan," what is the name of the military's commander-in-chief?
+Options: Erwin Smith, Dot Pixis, Nile Dawk, Dhalis Zachary
+Answer: Dhalis Zachary
+
+Question: In "My Hero Academia," who is the Pro Hero known as the "Rabbit Hero"?
+Options: Mt. Lady, Ryukyu, Mirko, Midnight
+Answer: Mirko
+
+Question: In "Demon Slayer," what is the name of the mountain where Tanjiro fights the spider family?
+Options: Mount Natagumo, Mount Fujikasane, Mount Kumotori, Mount Sagiri
+Answer: Mount Natagumo
+
+Question: In "Jujutsu Kaisen," what is Toge Inumaki's Cursed Technique?
+Options: Ten Shadows Technique, Cursed Speech, Limitless, Straw Doll Technique
+Answer: Cursed Speech
+
+Question: In "Hunter x Hunter," what is the name of the deadly toxin-filled assassins' test at the Zoldyck estate?
+Options: The Butler Gauntlet, The Testing Gate, The Hunter's Challenge, The Assassin's Rite
+Answer: The Testing Gate
+
+Question: In "Bleach," who is the creator of the Hōgyoku?
+Options: Sosuke Aizen, Kisuke Urahara, Mayuri Kurotsuchi, Shigekuni Yamamoto
+Answer: Kisuke Urahara
+
+Question: In "Fullmetal Alchemist," which Homunculus can regenerate from nearly any wound?
+Options: Envy, Lust, Greed, Pride
+Answer: Greed
+
+Question: In "Death Note," what is the maximum number of days one can detail a death in the notebook?
+Options: 7 days, 13 days, 23 days, 30 days
+Answer: 23 days
+
+Question: In "Pokémon," which of these is not an original starter Pokémon?
+Options: Bulbasaur, Charmander, Squirtle, Pikachu
+Answer: Pikachu
+
+Question: In "Fruits Basket," what is the name of the family afflicted by the zodiac curse?
+Options: The Honda family, The Uotani family, The Hanajima family, The Soma family
+Answer: The Soma family
+
+Question: In "Detective Conan," what organization is responsible for shrinking Shinichi?
+Options: The Magic Kaito gang, The Black Organization, The Men in Black, The Syndicate
+Answer: The Black Organization
+
+Question: In "Re:Zero," what is the name of the half-elf girl Subaru is devoted to?
+Options: Rem, Ram, Emilia, Beatrice
+Answer: Emilia
+
+Question: In "Gintama," what is Gintoki's signature weapon?
+Options: A real katana, A wooden bokuto, A steel pipe, His fists
+Answer: A wooden bokuto
+
+Question: In "Haikyuu!!," what is the position of Yu Nishinoya?
+Options: Setter, Wing Spiker, Libero, Middle Blocker
+Answer: Libero
+
+Question: In "Chainsaw Man," what is Makima the devil of?
+Options: Fear, Death, Control, Blood
+Answer: Control
+
+
